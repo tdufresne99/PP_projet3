@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class RoomDetection : MonoBehaviour
 {
+    [SerializeField] private MeshRenderer[] _walls;
+    [SerializeField] private Material _greenMaterial;
+    [SerializeField] private Material _redMaterial;
     [SerializeField] private int _roomNumber;
-    [SerializeField] private LayerMask _monsterLayer;
+    [SerializeField] private LayerMask _playerLayer;
     private BoxCollider _boxCollider;
 
     void Start()
@@ -15,16 +18,24 @@ public class RoomDetection : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (_monsterLayer == (_monsterLayer | (1 << other.gameObject.layer)))
+        if (_playerLayer == (_playerLayer | (1 << other.gameObject.layer)))
         {
-            Debug.Log("Monster entered Room " + _roomNumber);
+            foreach (var wall in _walls)
+            {
+                wall.material = _greenMaterial;
+            }
+            Debug.Log("Player entered Room " + _roomNumber);
         }
     }
     void OnTriggerExit(Collider other)
     {
-        if (_monsterLayer == (_monsterLayer | (1 << other.gameObject.layer)))
+        if (_playerLayer == (_playerLayer | (1 << other.gameObject.layer)))
         {
-            Debug.Log("Monster exited Room " + _roomNumber);
+            foreach (var wall in _walls)
+            {
+                wall.material = _redMaterial;
+            }
+            Debug.Log("Player exited Room " + _roomNumber);
         }
     }
 }
