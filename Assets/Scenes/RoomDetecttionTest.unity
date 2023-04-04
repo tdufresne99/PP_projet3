@@ -384,6 +384,11 @@ MonoBehaviour:
   _fatherCurrentRoomCS: {fileID: 775798732}
   _boyCurrentRoomCS: {fileID: 2134286911}
   _girlCurrentRoomCS: {fileID: 1422082286}
+  _playerCurrentRoom: 0
+  _motherCurrentRoom: 0
+  _fatherCurrentRoom: 0
+  _boyCurrentRoom: 0
+  _girlCurrentRoom: 0
 --- !u!1 &102429545
 GameObject:
   m_ObjectHideFlags: 0
@@ -1367,7 +1372,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!136 &547671847
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1879,7 +1884,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!195 &775798724
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -2489,7 +2494,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!195 &1422082278
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -4013,7 +4018,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!195 &2134286903
 NavMeshAgent:
   m_ObjectHideFlags: 0
