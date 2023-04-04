@@ -294,7 +294,8 @@ GameObject:
   - component: {fileID: 6251375092930729897}
   - component: {fileID: 6251375092930729814}
   - component: {fileID: 6251375092930729815}
-  m_Layer: 0
+  - component: {fileID: 1802770307}
+  m_Layer: 3
   m_Name: XR Origin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -315,7 +316,7 @@ Transform:
   m_Children:
   - {fileID: 6251375094491666658}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6251375092930729888
 MonoBehaviour:
@@ -419,7 +420,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_System: {fileID: 6251375092930729891}
-  m_MoveSpeed: 3
+  m_MoveSpeed: 5
   m_EnableStrafe: 1
   m_EnableFly: 0
   m_UseGravity: 1
@@ -514,7 +515,7 @@ MonoBehaviour:
   m_RightHandLocomotionType: 1
   m_LeftHandTurnStyle: 0
   m_RightHandTurnStyle: 0
-  m_EnableComfortMode: 1
+  m_EnableComfortMode: 0
   m_ComfortMode: {fileID: 2466872152733050851}
   m_UseGravity: 1
   m_EnableFly: 0
@@ -636,6 +637,19 @@ MonoBehaviour:
   m_EnableScaling: 0
   m_MinimumScale: 0.2
   m_MaximumScale: 100
+--- !u!114 &1802770307
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6251375092930729892}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad77635ebf10f5d44a0a4dc0023660f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _currentRoom: 4
 --- !u!1 &6251375093094368629
 GameObject:
   m_ObjectHideFlags: 0
@@ -745,7 +759,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_TrackingType: 0
   m_UpdateType: 0
-  m_IgnoreTrackingState: 0
   m_PositionInput:
     m_UseReference: 1
     m_Action:
@@ -788,18 +801,6 @@ MonoBehaviour:
       m_Flags: 0
     m_Reference: {fileID: -530380113134220495, guid: c348712bda248c246b8c49b3db54643f,
       type: 3}
-  m_TrackingStateInput:
-    m_UseReference: 0
-    m_Action:
-      m_Name: Tracking State Input
-      m_Type: 0
-      m_ExpectedControlType: 
-      m_Id: b49c67f1-ca8a-4538-b42c-50e09d59acc0
-      m_Processors: 
-      m_Interactions: 
-      m_SingletonActionBindings: []
-      m_Flags: 0
-    m_Reference: {fileID: 0}
   m_PositionAction:
     m_Name: Position
     m_Type: 0

@@ -4,11 +4,7 @@ using UnityEngine;
 
 public class RoomDetection : MonoBehaviour
 {
-    [SerializeField] private MeshRenderer[] _walls;
-    [SerializeField] private Material _greenMaterial;
-    [SerializeField] private Material _redMaterial;
-    [SerializeField] private int _roomNumber;
-    [SerializeField] private LayerMask _playerLayer;
+    [SerializeField] private RoomsEnum _room;
     private BoxCollider _boxCollider;
 
     void Start()
@@ -18,24 +14,52 @@ public class RoomDetection : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (_playerLayer == (_playerLayer | (1 << other.gameObject.layer)))
+        switch (other.gameObject.layer)
         {
-            foreach (var wall in _walls)
-            {
-                wall.material = _greenMaterial;
-            }
-            Debug.Log("Player entered Room " + _roomNumber);
+            case LayersEnum.PlayerLayer:
+                break;
+            case LayersEnum.MotherLayer:
+                break;
+            case LayersEnum.FatherLayer:
+                break;
+            case LayersEnum.BoyLayer:
+                break;
+            case LayersEnum.GirlLayer:
+                break;
+            default:
+                return;
         }
+        var objCurrentRoom = other.gameObject.GetComponent<ObjectCurrentRoom>();
+        if(objCurrentRoom == null)
+        {
+            Debug.LogWarning("L'objet ne possède pas de script 'ObjectCurrentRoom'");
+            return;
+        }
+        objCurrentRoom.CurrentRoom = _room;
     }
     void OnTriggerExit(Collider other)
     {
-        if (_playerLayer == (_playerLayer | (1 << other.gameObject.layer)))
+        switch (other.gameObject.layer)
         {
-            foreach (var wall in _walls)
-            {
-                wall.material = _redMaterial;
-            }
-            Debug.Log("Player exited Room " + _roomNumber);
+            case LayersEnum.PlayerLayer:
+                break;
+            case LayersEnum.MotherLayer:
+                break;
+            case LayersEnum.FatherLayer:
+                break;
+            case LayersEnum.BoyLayer:
+                break;
+            case LayersEnum.GirlLayer:
+                break;
+            default:
+                return;
         }
+        var objCurrentRoom = other.gameObject.GetComponent<ObjectCurrentRoom>();
+        if(objCurrentRoom == null)
+        {
+            Debug.LogWarning("L'objet ne possède pas de script 'ObjectCurrentRoom'");
+            return;
+        }
+        objCurrentRoom.CurrentRoom = RoomsEnum.Couloir;
     }
 }
