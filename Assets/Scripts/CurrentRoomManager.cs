@@ -18,36 +18,36 @@ public class CurrentRoomManager : MonoBehaviour
 
     void Start()
     {
-        _playerCurrentRoomCS.OnRoomChanged += OnPlayerChangedRoom;
-        _motherCurrentRoomCS.OnRoomChanged += OnMotherChangedRoom;
-        _fatherCurrentRoomCS.OnRoomChanged += OnFatherChangedRoom;
-        _boyCurrentRoomCS.OnRoomChanged += OnBoyChangedRoom;
-        _girlCurrentRoomCS.OnRoomChanged += OnGirlChangedRoom;
+        if(_playerCurrentRoomCS != null) _playerCurrentRoomCS.OnRoomChanged += OnPlayerChangedRoom;
+        if(_motherCurrentRoomCS != null) _motherCurrentRoomCS.OnRoomChanged += OnMotherChangedRoom;
+        if(_fatherCurrentRoomCS != null) _fatherCurrentRoomCS.OnRoomChanged += OnFatherChangedRoom;
+        if(_boyCurrentRoomCS != null) _boyCurrentRoomCS.OnRoomChanged += OnBoyChangedRoom;
+        if(_girlCurrentRoomCS != null) _girlCurrentRoomCS.OnRoomChanged += OnGirlChangedRoom;
     }
 
     private void OnPlayerChangedRoom(RoomsEnum room)
     {
-        Debug.Log("Player is now in " + room);
+        // Debug.Log("Player is now in " + room);
         _playerCurrentRoom = room;
     }
     private void OnMotherChangedRoom(RoomsEnum room)
     {
-        Debug.Log("Mother is now in " + room);
+        // Debug.Log("Mother is now in " + room);
         _motherCurrentRoom = room;
     }
     private void OnFatherChangedRoom(RoomsEnum room)
     {
-        Debug.Log("Father is now in " + room);
+        // Debug.Log("Father is now in " + room);
         _fatherCurrentRoom = room;
     }
     private void OnBoyChangedRoom(RoomsEnum room)
     {
-        Debug.Log("Boy is now in " + room);
+        // Debug.Log("Boy is now in " + room);
         _boyCurrentRoom = room;
     }
     private void OnGirlChangedRoom(RoomsEnum room)
     {
-        Debug.Log("Girl is now in " + room);
+        // Debug.Log("Girl is now in " + room);
         _girlCurrentRoom = room;
     }
 }
