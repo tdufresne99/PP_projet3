@@ -287,13 +287,14 @@ GameObject:
   - component: {fileID: 6251375092930729889}
   - component: {fileID: 6251375092930729891}
   - component: {fileID: 6251375092930729903}
+  - component: {fileID: 4716408004412692902}
   - component: {fileID: 6251375092930729890}
   - component: {fileID: 6251375092930729898}
   - component: {fileID: 6251375092930729901}
-  - component: {fileID: 6251375092930729899}
   - component: {fileID: 6251375092930729897}
   - component: {fileID: 6251375092930729815}
   - component: {fileID: 1802770320}
+  - component: {fileID: 2677175767832066385}
   - component: {fileID: 1802770307}
   m_Layer: 3
   m_Name: XR Origin
@@ -316,7 +317,7 @@ Transform:
   m_Children:
   - {fileID: 6251375094491666658}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6251375092930729888
 MonoBehaviour:
@@ -407,6 +408,44 @@ MonoBehaviour:
       m_Flags: 0
     m_Reference: {fileID: -8525429354371678379, guid: c348712bda248c246b8c49b3db54643f,
       type: 3}
+--- !u!114 &4716408004412692902
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6251375092930729892}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 919e39492806b334982b6b84c90dd927, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_System: {fileID: 0}
+  m_TurnSpeed: 60
+  m_LeftHandTurnAction:
+    m_UseReference: 0
+    m_Action:
+      m_Name: Left Hand Turn
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: a2b2912a-6ef1-4b6d-b486-4ec0bb1e6030
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    m_Reference: {fileID: 0}
+  m_RightHandTurnAction:
+    m_UseReference: 0
+    m_Action:
+      m_Name: Right Hand Turn
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: df297fa3-606f-42df-bfca-8bef69b3febb
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    m_Reference: {fileID: 0}
 --- !u!114 &6251375092930729890
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -493,33 +532,6 @@ MonoBehaviour:
   m_LocomotionProvider: {fileID: 6251375092930729903}
   m_MinHeight: 0
   m_MaxHeight: Infinity
---- !u!114 &6251375092930729899
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6251375092930729892}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa74d384629b02340bc59709603b0771, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_DynamicMoveProvider: {fileID: 1802770320}
-  m_SmoothTurnProvider: {fileID: 6251375092930729897}
-  m_SnapTurnProvider: {fileID: 6251375092930729903}
-  m_TwoHandedGrabMoveProvider: {fileID: 6251375092930729815}
-  m_LeftHandManager: {fileID: 6251375092846700706}
-  m_RightHandManager: {fileID: 6251375093192828806}
-  m_LeftHandLocomotionType: 0
-  m_RightHandLocomotionType: 1
-  m_LeftHandTurnStyle: 0
-  m_RightHandTurnStyle: 0
-  m_EnableComfortMode: 0
-  m_ComfortMode: {fileID: 2466872152733050851}
-  m_UseGravity: 1
-  m_EnableFly: 0
-  m_EnableGrabMovement: 0
 --- !u!114 &6251375092930729897
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -594,7 +606,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6251375092930729892}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9242dcf56b2cbf94aab28bf3eff0900e, type: 3}
   m_Name: 
@@ -635,6 +647,33 @@ MonoBehaviour:
   m_RightControllerTransform: {fileID: 6251375093192828825}
   m_LeftHandMovementDirection: 0
   m_RightHandMovementDirection: 0
+--- !u!114 &2677175767832066385
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6251375092930729892}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa74d384629b02340bc59709603b0771, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_DynamicMoveProvider: {fileID: 1802770320}
+  m_SmoothTurnProvider: {fileID: 4716408004412692902}
+  m_SnapTurnProvider: {fileID: 6251375092930729903}
+  m_TwoHandedGrabMoveProvider: {fileID: 6251375092930729815}
+  m_LeftHandManager: {fileID: 6251375092846700706}
+  m_RightHandManager: {fileID: 6251375093192828806}
+  m_LeftHandLocomotionType: 0
+  m_RightHandLocomotionType: 0
+  m_LeftHandTurnStyle: 0
+  m_RightHandTurnStyle: 0
+  m_EnableComfortMode: 0
+  m_ComfortMode: {fileID: 2466872152733050851}
+  m_UseGravity: 1
+  m_EnableFly: 0
+  m_EnableGrabMovement: 0
 --- !u!114 &1802770307
 MonoBehaviour:
   m_ObjectHideFlags: 0

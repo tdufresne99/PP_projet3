@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.AI;
 
-public class NavMeshDestination : MonoBehaviour
+public class NavMeshAgentManager : MonoBehaviour
 {
     private NavMeshAgent _agent;
     [SerializeField] private Transform _destination;
@@ -24,5 +24,10 @@ public class NavMeshDestination : MonoBehaviour
     public void ChangeAgentSpeed(float newSpeed)
     {
         _agent.speed = newSpeed;
+    }
+
+    public void ToggleNavMeshAgent(bool enable)
+    {
+        _agent.enabled = enable;
     }
 }

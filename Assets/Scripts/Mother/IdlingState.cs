@@ -3,16 +3,20 @@ namespace Mother
 {
     public class IdlingState : MotherState
     {
-        private MotherStateManager manager;
+        private MotherStateManager _manager;
 
         public IdlingState(MotherStateManager manager)
         {
-            this.manager = manager;
+            this._manager = manager;
         }
-        
+
         public override void Enter()
         {
             // Enter patrolling state
+
+            // Play idle anim;
+
+            // Play idle sound;
         }
 
         public override void Execute()

@@ -1,66 +1,41 @@
 using System.Collections;
 using UnityEngine;
 
-namespace Mother
+namespace Boy
 {
-    public class SpottingState : MotherState
+    public class IdlingState : BoyState
     {
-        private Coroutine spotCoroutine;
-        private float _distanceThreshold = 12f;
-        private float _startSpotDelay = 1.5f;
-        private float _spotDuration = 2f;
-        private float _spotMoveSpeed = 2.5f;
-        private MotherStateManager _manager;
+        private float _distanceThreshold = 8f;
+        private float _waitingTime = 3f;
+        private bool _isWaiting = true;
+        private BoyStateManager _manager;
 
-        public SpottingState(MotherStateManager manager)
+        public IdlingState(BoyStateManager manager)
         {
             this._manager = manager;
         }
         public override void Enter()
         {
-            // Enter spotting state
-
-            // Play patrol anim;
-            _manager.GetComponent<MeshRenderer>().material = _manager.spotMat;
-
-            // Play patrol sound;
-
-            _manager.navMeshDestinationCS.ChangeDestination(_manager.playerTransform.position);
-            _manager.navMeshDestinationCS.ChangeAgentSpeed(_spotMoveSpeed);
-
-            _manager.StartCoroutine(StartSpotDelay());
-        }
-
-        private IEnumerator StartSpotDelay()
-        {
-            yield return new WaitForSecondsRealtime(_startSpotDelay);
-            StartCoroutineSpot();
-        }
-        private void StartCoroutineSpot()
-        {
-            spotCoroutine = _manager.StartCoroutine(CoroutineSpot());
+            Debug.Log("Waiting in the darkness...");
+            _isWaiting = true;
+            _manager.StartCoroutine(CoroutineWaitingInTheDarkness());
         }
 
         public override void Execute()
         {
-            // Do patrolling behavior
+            if(!_isWaiting) DetectPlayer(_manager.boyTransform, _manager.playerTransform);
         }
 
         public override void Exit()
         {
-            // Exit patrolling state
+            
         }
 
-        private IEnumerator CoroutineSpot()
+        private IEnumerator CoroutineWaitingInTheDarkness()
         {
-            var remaingSpotTime = _spotDuration;
-            while(remaingSpotTime > 0)
-            {
-                DetectPlayer(_manager.motherTransform, _manager.playerTransform);
-                remaingSpotTime -= 0.1f;
-                yield return new WaitForSecondsRealtime(0.1f);
-            }
-            _manager.TransitionToState(_manager.patrollingState);
+            yield return new WaitForSecondsRealtime(_waitingTime);
+            _isWaiting = false;
+            Debug.Log("Out for blood!");
         }
 
         private void DetectPlayer(Transform objectTransform, Transform otherObjectTransform)
@@ -87,7 +62,6 @@ namespace Mother
             if (!isHit || hit.collider.gameObject == otherObjectTransform.gameObject)
             {
                 // There are no obstacles in the way, so the two objects have line of sight
-                if(spotCoroutine != null) _manager.StopCoroutine(spotCoroutine);
                 _manager.TransitionToState(_manager.chasingState);
 
                 // Visualize the check by drawing a line between the two objects

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CurrentRoomManager : MonoBehaviour
+public class RoomManager : MonoBehaviour
 {
     [SerializeField] private ObjectCurrentRoom _playerCurrentRoomCS;
     [SerializeField] private ObjectCurrentRoom _motherCurrentRoomCS;
@@ -15,6 +15,18 @@ public class CurrentRoomManager : MonoBehaviour
     [SerializeField] private RoomsEnum _fatherCurrentRoom;
     [SerializeField] private RoomsEnum _boyCurrentRoom;
     [SerializeField] private RoomsEnum _girlCurrentRoom;
+
+    [SerializeField] private RoomLight[] _roomLightsCS;
+    [SerializeField] private Transform[] _roomCenterTransforms;
+
+
+
+    private static RoomManager _instance;
+    void Awake()
+    {
+        if(_instance == null) _instance = this;
+        else Destroy(this);
+    }
 
     void Start()
     {
@@ -50,4 +62,33 @@ public class CurrentRoomManager : MonoBehaviour
         // Debug.Log("Girl is now in " + room);
         _girlCurrentRoom = room;
     }
+
+    public Transform FindRandomRoomWithLightsOn()
+    {
+        List<Transform> possibleRooms = new List<Transform>(_roomCenterTransforms.Length);
+        for (int i = 0; i < _roomCenterTransforms.Length; i++)
+        {
+            if(_roomLightsCS[i].LightIsOn) possibleRooms.Add(_roomCenterTransforms[i]);
+        }
+        if(possibleRooms.Count == 0) return null;
+        else
+        {
+            int randIndex = Random.Range(0, possibleRooms.Count);
+            return possibleRooms[randIndex];
+        }
+    }
+
+    public RoomLight GetLightToTurnOff(Transform roomTransform)
+    {
+        var lightToTurnOff = roomTransform.gameObject.GetComponentInParent<RoomLight>();
+        if(lightToTurnOff == null) 
+        {
+            Debug.LogWarning("Light to turn off (RoomLight) script could not be found...");
+        }
+        return lightToTurnOff;
+    }
+
+    public static RoomManager Instance => _instance;
+    public RoomLight[] roomLights => _roomLightsCS;
+    public Transform[] roomTransforms => _roomCenterTransforms;
 }

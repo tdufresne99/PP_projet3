@@ -5,25 +5,30 @@ namespace Mother
 {
     public class PatrollingState : MotherState
     {
-        private MotherStateManager manager;
+        private float _patrolMoveSpeed = 2f;
+        private MotherStateManager _manager;
         private float _distanceThreshold = 8f;
         
         public PatrollingState(MotherStateManager manager)
         {
-            this.manager = manager;
+            this._manager = manager;
         }
         public override void Enter()
         {
-            // Set animation;
-            manager.GetComponent<MeshRenderer>().material = manager.patrolMat;
-            // Set sound;
-            manager.navMeshDestinationCS.ChangeDestination();
+            // Enter patrolling state
+
+            // Play patrol anim;
+            _manager.GetComponent<MeshRenderer>().material = _manager.patrolMat;
+
+            // Play patrol sound;
+            _manager.navMeshDestinationCS.ChangeDestination();
+            _manager.navMeshDestinationCS.ChangeAgentSpeed(_patrolMoveSpeed);
         }
 
         public override void Execute()
         {
             // Do patrolling behavior
-            DetectPlayer(manager.motherTransform, manager.playerTransform);
+            DetectPlayer(_manager.motherTransform, _manager.playerTransform);
         }
 
         public override void Exit()
@@ -49,13 +54,13 @@ namespace Mother
 
             // Set up the raycast hit information
             RaycastHit hit;
-            bool isHit = Physics.Raycast(object1Pos, direction, out hit, _distanceThreshold, manager.wallsLayerMask);
+            bool isHit = Physics.Raycast(object1Pos, direction, out hit, _distanceThreshold, _manager.wallsLayerMask);
 
             // Check if the raycast hit anything
             if (!isHit || hit.collider.gameObject == otherObjectTransform.gameObject)
             {
                 // There are no obstacles in the way, so the two objects have line of sight
-                manager.TransitionToState(manager.spottingState);
+                _manager.TransitionToState(_manager.spottingState);
 
                 // Visualize the check by drawing a line between the two objects
                 Debug.DrawLine(object1Pos, object2Pos, Color.green, 0.1f);

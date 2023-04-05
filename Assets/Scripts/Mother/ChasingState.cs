@@ -1,30 +1,36 @@
-
 using UnityEngine;
 
 namespace Mother
 {
     public class ChasingState : MotherState
     {
+        private float _chaseMoveSpeed = 3f;
         private float _distanceThreshold = 12f;
-        private MotherStateManager manager;
+        private MotherStateManager _manager;
 
         public ChasingState(MotherStateManager manager)
         {
-            this.manager = manager;
+            this._manager = manager;
         }
 
         public override void Enter()
         {
-            manager.GetComponent<MeshRenderer>().material = manager.chaseMat;
-
             // Enter patrolling state
+
+            // Play chase anim;
+            _manager.GetComponent<MeshRenderer>().material = _manager.chaseMat;
+
+            // Play chase sound;
+
+            _manager.navMeshDestinationCS.ChangeDestination(_manager.playerTransform.position);
+            _manager.navMeshDestinationCS.ChangeAgentSpeed(_chaseMoveSpeed);
         }
 
         public override void Execute()
         {
             // Do patrolling behavior
-            manager.navMeshDestinationCS.ChangeDestination(manager.playerTransform.position);
-            DetectPlayer(manager.motherTransform, manager.playerTransform);
+            _manager.navMeshDestinationCS.ChangeDestination(_manager.playerTransform.position);
+            DetectPlayer(_manager.motherTransform, _manager.playerTransform);
         }
 
         public override void Exit()
@@ -49,7 +55,7 @@ namespace Mother
 
             // Set up the raycast hit information
             RaycastHit hit;
-            bool isHit = Physics.Raycast(object1Pos, direction, out hit, _distanceThreshold, manager.wallsLayerMask);
+            bool isHit = Physics.Raycast(object1Pos, direction, out hit, _distanceThreshold, _manager.wallsLayerMask);
 
             // Check if the raycast hit anything
             if (!isHit || hit.collider.gameObject == otherObjectTransform.gameObject)
@@ -63,7 +69,7 @@ namespace Mother
             {
                 // There is an obstacle in the way, so the two objects do not have line of sight
                 // Visualize the check by drawing a line between the two objects up to the point of the hit
-                manager.TransitionToState(manager.spottingState);
+                _manager.TransitionToState(_manager.spottingState);
 
                 Debug.DrawLine(object1Pos, hit.point, Color.red, 0.1f);
             }

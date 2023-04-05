@@ -1,51 +1,49 @@
 using UnityEngine;
 
-namespace Mother
+namespace Boy
 {
-    public class MotherStateManager : MonoBehaviour
+    public class BoyStateManager : MonoBehaviour
     {
-        public Material patrolMat;
-        public Material spotMat;
-        public Material chaseMat;
-
-        public NavMeshAgentManager navMeshDestinationCS;
+        public RoomManager roomManagerCS;
+        public NavMeshAgentManager navMeshAgentCS;
+        public RoomLight lightToTurnOffCS;
+        public Transform respawnTransform;
+        public Transform boyTransform;
         public Transform playerTransform;
-        public Transform motherTransform;
         public LayerMask wallsLayerMask;
 
-        public MotherState currentState;
+        public BoyState currentState;
 
+        public RespawningState respawningState;
         public IdlingState idlingState;
-        public PatrollingState patrollingState;
-        public SpottingState spottingState;
+        public LightClosingState lightClosingState;
         public ChasingState chasingState;
-        
 
-        // Initialize state variables
         private void Start()
         {
-            motherTransform = transform;
+            navMeshAgentCS.ToggleNavMeshAgent(false);
 
+            respawningState = new RespawningState(this);
             idlingState = new IdlingState(this);
-            patrollingState = new PatrollingState(this);
-            spottingState = new SpottingState(this);
+            lightClosingState = new LightClosingState(this);
             chasingState = new ChasingState(this);
 
             // Start in patrolling state
-            TransitionToState(patrollingState);
+            TransitionToState(respawningState);
         }
+
         void Update()
         {
             if (currentState == null)
             {
                 // Transition to patrolling state by default
-                TransitionToState(patrollingState);
+                TransitionToState(respawningState);
             }
 
             currentState.Execute();
         }
 
-        public void TransitionToState(MotherState newState)
+        public void TransitionToState(BoyState newState)
         {
             if (currentState != null)
             {
@@ -57,4 +55,3 @@ namespace Mother
         }
     }
 }
-
