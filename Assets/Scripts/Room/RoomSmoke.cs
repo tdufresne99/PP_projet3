@@ -8,7 +8,7 @@ public class RoomSmoke : MonoBehaviour
     [SerializeField] private GameObject _smoke;
     void Start()
     {
-        _smoke.SetActive(_smokeIsOn);
+        if (_smoke != null) _smoke.SetActive(_smokeIsOn);
     }
 
     public bool SmokeIsOn

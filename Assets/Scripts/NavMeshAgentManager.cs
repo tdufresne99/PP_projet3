@@ -30,4 +30,6 @@ public class NavMeshAgentManager : MonoBehaviour
     {
         _agent.enabled = enable;
     }
+
+    public NavMeshAgent agent => _agent;
 }

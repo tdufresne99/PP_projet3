@@ -8,7 +8,8 @@ namespace Mother
         private float _patrolMoveSpeed = 2f;
         private MotherStateManager _manager;
         private float _distanceThreshold = 8f;
-        
+        private Vector3 _currentDestination;
+
         public PatrollingState(MotherStateManager manager)
         {
             this._manager = manager;
@@ -21,7 +22,9 @@ namespace Mother
             _manager.GetComponent<MeshRenderer>().material = _manager.patrolMat;
 
             // Play patrol sound;
-            _manager.navMeshDestinationCS.ChangeDestination();
+
+            _currentDestination = _manager.GetRandomDestination();
+            _manager.navMeshDestinationCS.ChangeDestination(_currentDestination);
             _manager.navMeshDestinationCS.ChangeAgentSpeed(_patrolMoveSpeed);
         }
 
@@ -29,6 +32,10 @@ namespace Mother
         {
             // Do patrolling behavior
             DetectPlayer(_manager.motherTransform, _manager.playerTransform);
+            if (Mathf.Abs(Vector3.Distance(_manager.motherTransform.position, _currentDestination)) <= 1f)
+            {
+                _manager.TransitionToState(_manager.idlingState);
+            }
         }
 
         public override void Exit()

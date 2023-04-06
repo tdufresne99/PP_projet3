@@ -7,8 +7,10 @@ namespace Mother
         public Material patrolMat;
         public Material spotMat;
         public Material chaseMat;
+        public Material idleMat;
 
         public NavMeshAgentManager navMeshDestinationCS;
+        public RoomManager roomManager;
         public Transform playerTransform;
         public Transform motherTransform;
         public LayerMask wallsLayerMask;
@@ -54,6 +56,12 @@ namespace Mother
 
             currentState = newState;
             currentState.Enter();
+        }
+
+        public Vector3 GetRandomDestination()
+        {
+            int randIndex = Random.Range(0, roomManager.roomTransforms.Length);
+            return roomManager.roomTransforms[randIndex].position;
         }
     }
 }

@@ -6,7 +6,7 @@ public class RoomLight : MonoBehaviour
     [SerializeField] private GameObject _fakeLight;
     void Start()
     {
-        _fakeLight.SetActive(_lightIsOn);
+        if (_fakeLight != null) _fakeLight.SetActive(_lightIsOn);
     }
 
     public bool LightIsOn
@@ -14,7 +14,7 @@ public class RoomLight : MonoBehaviour
         get => _lightIsOn;
         set
         {
-            if(_lightIsOn == value) return;
+            if (_lightIsOn == value) return;
             _lightIsOn = value;
             _fakeLight.SetActive(_lightIsOn);
         }
