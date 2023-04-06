@@ -7,6 +7,7 @@ namespace Boy
     {
         private BoyStateManager _manager;
         private float _respawnTime = 3f;
+        private Coroutine _coroutineRespawn;
 
         public RespawningState(BoyStateManager manager)
         {
@@ -19,7 +20,7 @@ namespace Boy
             _manager.navMeshAgentCS.ToggleNavMeshAgent(false);
             _manager.boyTransform.position = _manager.respawnTransform.position;
 
-            _manager.StartCoroutine(CoroutineRespawn());
+            _coroutineRespawn = _manager.StartCoroutine(CoroutineRespawn());
         }
 
         public override void Execute()
@@ -29,7 +30,7 @@ namespace Boy
 
         public override void Exit()
         {
-            
+            _manager.StopCoroutine(_coroutineRespawn);
         }
 
         private IEnumerator CoroutineRespawn()

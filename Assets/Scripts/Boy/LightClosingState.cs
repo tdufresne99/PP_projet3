@@ -23,9 +23,13 @@ namespace Boy
                 _manager.boyTransform.position = _respawnDestination.position;
             }
             
-            if(_lightToTurnOff != null) _lightToTurnOff.LightIsOn = false;
+            if(_lightToTurnOff != null) 
+            {
+                _lightToTurnOff.LightIsOn = false;
 
-            _manager.TransitionToState(_manager.idlingState);
+                _manager.TransitionToState(_manager.idlingState);
+            }
+            else _manager.TransitionToState(_manager.chasingState);
         }
 
         public override void Execute()

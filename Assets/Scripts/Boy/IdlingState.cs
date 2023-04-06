@@ -8,6 +8,7 @@ namespace Boy
         private float _distanceThreshold = 8f;
         private float _waitingInTheDarknessTime = 3f;
         private float _waitingBeforeRespawnTime = 5f;
+        private Coroutine _respawnCoroutine;
         private bool _isWaiting = true;
         private BoyStateManager _manager;
 
@@ -29,7 +30,7 @@ namespace Boy
 
         public override void Exit()
         {
-            
+            _manager.StopCoroutine(_respawnCoroutine);
         }
 
         private IEnumerator CoroutineWaitingInTheDarkness()
@@ -37,7 +38,7 @@ namespace Boy
             yield return new WaitForSecondsRealtime(_waitingInTheDarknessTime);
             _isWaiting = false;
             Debug.Log("Out for blood!");
-            _manager.StartCoroutine(CoroutineWaitingBeforeRespawn());
+            _respawnCoroutine = _manager.StartCoroutine(CoroutineWaitingBeforeRespawn());
         }
 
         private IEnumerator CoroutineWaitingBeforeRespawn()

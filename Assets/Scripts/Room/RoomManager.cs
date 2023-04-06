@@ -18,6 +18,7 @@ public class RoomManager : MonoBehaviour
 
     [SerializeField] private RoomLight[] _roomLightsCS;
     [SerializeField] private Transform[] _roomCenterTransforms;
+    [SerializeField] private Transform _mapCenterTransform;
 
 
 
@@ -70,7 +71,7 @@ public class RoomManager : MonoBehaviour
         {
             if(_roomLightsCS[i].LightIsOn) possibleRooms.Add(_roomCenterTransforms[i]);
         }
-        if(possibleRooms.Count == 0) return null;
+        if(possibleRooms.Count == 0) return _mapCenterTransform;
         else
         {
             int randIndex = Random.Range(0, possibleRooms.Count);
@@ -83,7 +84,7 @@ public class RoomManager : MonoBehaviour
         var lightToTurnOff = roomTransform.gameObject.GetComponentInParent<RoomLight>();
         if(lightToTurnOff == null) 
         {
-            Debug.LogWarning("Light to turn off (RoomLight) script could not be found...");
+            Debug.Log("All lights are turn off...");
         }
         return lightToTurnOff;
     }
