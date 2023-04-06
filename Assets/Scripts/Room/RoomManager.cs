@@ -17,6 +17,7 @@ public class RoomManager : MonoBehaviour
     [SerializeField] private RoomsEnum _girlCurrentRoom;
 
     [SerializeField] private RoomLight[] _roomLightsCS;
+    [SerializeField] private RoomSmoke[] _roomSmokesCS;
     [SerializeField] private Transform[] _roomCenterTransforms;
     [SerializeField] private Transform _mapCenterTransform;
 
@@ -64,14 +65,14 @@ public class RoomManager : MonoBehaviour
         _girlCurrentRoom = room;
     }
 
-    public Transform FindRandomRoomWithLightsOn()
+    public Transform FindRandomRoomWithLightsOn(bool lightsOn)
     {
         List<Transform> possibleRooms = new List<Transform>(_roomCenterTransforms.Length);
         for (int i = 0; i < _roomCenterTransforms.Length; i++)
         {
-            if(_roomLightsCS[i].LightIsOn) possibleRooms.Add(_roomCenterTransforms[i]);
+            if(_roomLightsCS[i].LightIsOn == lightsOn) possibleRooms.Add(_roomCenterTransforms[i]);
         }
-        if(possibleRooms.Count == 0) return _mapCenterTransform;
+        if(possibleRooms.Count == 0) return null;
         else
         {
             int randIndex = Random.Range(0, possibleRooms.Count);
@@ -88,8 +89,18 @@ public class RoomManager : MonoBehaviour
         }
         return lightToTurnOff;
     }
+    public RoomSmoke GetSmokeToActivate(Transform roomTransform)
+    {
+        var smokeToActivate = roomTransform.gameObject.GetComponentInParent<RoomSmoke>();
+        if(smokeToActivate == null) 
+        {
+            Debug.LogWarning("No smoke object found...");
+        }
+        return smokeToActivate;
+    }
 
     public static RoomManager Instance => _instance;
     public RoomLight[] roomLights => _roomLightsCS;
     public Transform[] roomTransforms => _roomCenterTransforms;
+    public Transform mapCenterTransform => _mapCenterTransform;
 }

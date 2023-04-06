@@ -1,31 +1,28 @@
 using UnityEngine;
 
-namespace Boy
+namespace Father
 {
-    public class BoyStateManager : MonoBehaviour
+    public class FatherStateManager : MonoBehaviour
     {
         public RoomManager roomManagerCS;
-        public NavMeshAgentManager navMeshAgentCS;
         public Transform respawnTransform;
-        public Transform boyTransform;
+        public Transform fatherTransform;
         public Transform playerTransform;
-        public LayerMask wallsLayerMask;
+        public Transform currentRoomTransform;
+        // public LayerMask wallsLayerMask;
 
-        public BoyState currentState;
+
+        public FatherState currentState;
 
         public RespawningState respawningState;
-        public IdlingState idlingState;
-        public LightClosingState lightClosingState;
-        public ChasingState chasingState;
+        public RoomChoosingState roomChoosingState;
+        public SmokingState smokingState;
 
         private void Start()
         {
-            navMeshAgentCS.ToggleNavMeshAgent(false);
-
             respawningState = new RespawningState(this);
-            idlingState = new IdlingState(this);
-            lightClosingState = new LightClosingState(this);
-            chasingState = new ChasingState(this);
+            roomChoosingState = new RoomChoosingState(this);
+            smokingState = new SmokingState(this);
 
             // Start in patrolling state
             TransitionToState(respawningState);
@@ -42,7 +39,7 @@ namespace Boy
             currentState.Execute();
         }
 
-        public void TransitionToState(BoyState newState)
+        public void TransitionToState(FatherState newState)
         {
             if (currentState != null)
             {

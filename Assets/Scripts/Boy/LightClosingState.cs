@@ -16,11 +16,16 @@ namespace Boy
         public override void Enter()
         {
             Debug.Log("Closing the light");
-            _respawnDestination = _manager.roomManagerCS.FindRandomRoomWithLightsOn();
+            _respawnDestination = _manager.roomManagerCS.FindRandomRoomWithLightsOn(true);
             if(_respawnDestination != null) 
             {
                 _lightToTurnOff = _manager.roomManagerCS.GetLightToTurnOff(_respawnDestination);
                 _manager.boyTransform.position = _respawnDestination.position;
+            }
+            else
+            {
+                _manager.boyTransform.position = _manager.roomManagerCS.mapCenterTransform.position;
+                _manager.TransitionToState(_manager.chasingState);
             }
             
             if(_lightToTurnOff != null) 
@@ -29,7 +34,6 @@ namespace Boy
 
                 _manager.TransitionToState(_manager.idlingState);
             }
-            else _manager.TransitionToState(_manager.chasingState);
         }
 
         public override void Execute()

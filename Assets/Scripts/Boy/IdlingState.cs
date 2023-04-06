@@ -30,7 +30,7 @@ namespace Boy
 
         public override void Exit()
         {
-            _manager.StopCoroutine(_respawnCoroutine);
+            if (_respawnCoroutine != null) _manager.StopCoroutine(_respawnCoroutine);
         }
 
         private IEnumerator CoroutineWaitingInTheDarkness()

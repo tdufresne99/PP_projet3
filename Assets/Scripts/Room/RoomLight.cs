@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class RoomLight : MonoBehaviour
 {
-    [SerializeField] private string _roomName;
     [SerializeField] private bool _lightIsOn;
     [SerializeField] private GameObject _fakeLight;
     void Start()
@@ -25,6 +24,6 @@ public class RoomLight : MonoBehaviour
     {
         // Lumiere.SetActive(activate);
         string lightState = (activate) ? "allumé" : "fermé";
-        Debug.Log("La lumière de la salle " + _roomName + " est maintenant " + lightState);
+        Debug.Log("La lumière de la salle " + transform.parent.name + " est maintenant " + lightState);
     }
 }
