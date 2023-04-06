@@ -33,6 +33,10 @@ namespace Father
         private void ChoosingRoom()
         {
             Debug.Log("Choosing a room to smoke...");
+
+            // Play idle anim;
+            _manager.GetComponent<MeshRenderer>().material = _manager.roomChooseMat;
+
             _newRoomTranform = _manager.roomManagerCS.FindRandomRoomWithLightsOn(false);
             if (_newRoomTranform != null)
             {

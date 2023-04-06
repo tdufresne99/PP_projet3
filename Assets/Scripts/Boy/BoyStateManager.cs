@@ -4,6 +4,11 @@ namespace Boy
 {
     public class BoyStateManager : MonoBehaviour
     {
+        public Material chaseMat;
+        public Material idleMat;
+        public Material lightCloseMat;
+        public Material respawnMat;
+
         public RoomManager roomManagerCS;
         public NavMeshAgentManager navMeshAgentCS;
         public Transform respawnTransform;

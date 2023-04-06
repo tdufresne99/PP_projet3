@@ -14,6 +14,10 @@ namespace Boy
         public override void Enter()
         {
             Debug.Log("RUN!");
+
+            // Play idle anim;
+            _manager.GetComponent<MeshRenderer>().material = _manager.chaseMat;
+
             _manager.navMeshAgentCS.ToggleNavMeshAgent(true);
             _manager.navMeshAgentCS.ChangeAgentSpeed(_chaseMoveSpeed);
             

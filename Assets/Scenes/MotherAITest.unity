@@ -673,11 +673,6 @@ PrefabInstance:
       propertyPath: m_InteractionManager
       value: 
       objectReference: {fileID: 1606306430}
-    - target: {fileID: 6251375092930729890, guid: 0acd253406207f44bad796b6e5cdf14d,
-        type: 3}
-      propertyPath: m_MoveSpeed
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 6251375092930729892, guid: 0acd253406207f44bad796b6e5cdf14d,
         type: 3}
       propertyPath: m_Name
@@ -691,7 +686,7 @@ PrefabInstance:
     - target: {fileID: 6251375092930729902, guid: 0acd253406207f44bad796b6e5cdf14d,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -16.66
+      value: 7.22
       objectReference: {fileID: 0}
     - target: {fileID: 6251375092930729902, guid: 0acd253406207f44bad796b6e5cdf14d,
         type: 3}
@@ -701,7 +696,7 @@ PrefabInstance:
     - target: {fileID: 6251375092930729902, guid: 0acd253406207f44bad796b6e5cdf14d,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.36
+      value: 8.45
       objectReference: {fileID: 0}
     - target: {fileID: 6251375092930729902, guid: 0acd253406207f44bad796b6e5cdf14d,
         type: 3}

@@ -16,6 +16,10 @@ namespace Boy
         public override void Enter()
         {
             Debug.Log("Closing the light");
+
+            // Play idle anim;
+            _manager.GetComponent<MeshRenderer>().material = _manager.lightCloseMat;
+
             _respawnDestination = _manager.roomManagerCS.FindRandomRoomWithLightsOn(true);
             if(_respawnDestination != null) 
             {
@@ -26,6 +30,7 @@ namespace Boy
             {
                 _manager.boyTransform.position = _manager.roomManagerCS.mapCenterTransform.position;
                 _manager.TransitionToState(_manager.chasingState);
+                return;
             }
             
             if(_lightToTurnOff != null) 

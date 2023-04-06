@@ -17,6 +17,10 @@ namespace Father
         public override void Enter()
         {
             Debug.Log("Respawning");
+
+            // Play idle anim;
+            _manager.GetComponent<MeshRenderer>().material = _manager.respawnMat;
+
             _manager.fatherTransform.position = _manager.respawnTransform.position;
 
             _coroutineRespawn = _manager.StartCoroutine(CoroutineRespawn());

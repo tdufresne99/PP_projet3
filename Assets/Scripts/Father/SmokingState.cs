@@ -18,6 +18,10 @@ namespace Father
 
         public override void Enter()
         {
+
+            // Play idle anim;
+            _manager.GetComponent<MeshRenderer>().material = _manager.smokeMat;
+
             _currentRoomSmoke = _manager.currentRoomTransform.gameObject.GetComponent<RoomSmoke>();
             if(_currentRoomSmoke != null)
             {

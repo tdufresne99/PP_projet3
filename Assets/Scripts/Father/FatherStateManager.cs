@@ -4,6 +4,10 @@ namespace Father
 {
     public class FatherStateManager : MonoBehaviour
     {
+        public Material smokeMat;
+        public Material roomChooseMat;
+        public Material respawnMat;
+
         public RoomManager roomManagerCS;
         public Transform respawnTransform;
         public Transform fatherTransform;

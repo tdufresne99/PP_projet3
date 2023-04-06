@@ -317,7 +317,7 @@ Transform:
   m_Children:
   - {fileID: 6251375094491666658}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6251375092930729888
 MonoBehaviour:
@@ -459,7 +459,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_System: {fileID: 6251375092930729891}
-  m_MoveSpeed: 5
+  m_MoveSpeed: 4
   m_EnableStrafe: 1
   m_EnableFly: 0
   m_UseGravity: 1
@@ -666,7 +666,7 @@ MonoBehaviour:
   m_LeftHandManager: {fileID: 6251375092846700706}
   m_RightHandManager: {fileID: 6251375093192828806}
   m_LeftHandLocomotionType: 0
-  m_RightHandLocomotionType: 0
+  m_RightHandLocomotionType: 1
   m_LeftHandTurnStyle: 0
   m_RightHandTurnStyle: 0
   m_EnableComfortMode: 0

@@ -17,6 +17,10 @@ namespace Boy
         public override void Enter()
         {
             Debug.Log("Respawning");
+
+            // Play idle anim;
+            _manager.GetComponent<MeshRenderer>().material = _manager.respawnMat;
+
             _manager.navMeshAgentCS.ToggleNavMeshAgent(false);
             _manager.boyTransform.position = _manager.respawnTransform.position;
 
