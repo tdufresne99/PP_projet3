@@ -62,37 +62,6 @@ Transform:
   m_Father: {fileID: 7961382254627299023}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &7961382253705677114
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 7961382253705677113}
-  m_Layer: 0
-  m_Name: MapCenter
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &7961382253705677113
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7961382253705677114}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 7961382255419567309}
-  m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7961382253730859115
 GameObject:
   m_ObjectHideFlags: 0
@@ -765,7 +734,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e169287b451da0244b731a62b5d67e9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _lightIsOn: 1
+  _lightIsOn: 0
   _fakeLight: {fileID: 7961382255256934154}
 --- !u!114 &7961382254194676127
 MonoBehaviour:
@@ -1002,7 +971,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e169287b451da0244b731a62b5d67e9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _lightIsOn: 1
+  _lightIsOn: 0
   _fakeLight: {fileID: 7961382255206288812}
 --- !u!114 &7961382254255736223
 MonoBehaviour:
@@ -3368,7 +3337,6 @@ Transform:
   m_Children:
   - {fileID: 7961382254627299023}
   - {fileID: 7961382254713425288}
-  - {fileID: 7961382253705677113}
   - {fileID: 7961382255155164654}
   - {fileID: 7961382254194676123}
   - {fileID: 7961382254255736219}
@@ -3413,7 +3381,7 @@ MonoBehaviour:
   - {fileID: 7961382254599153907}
   - {fileID: 7961382255705819122}
   - {fileID: 7961382254534240271}
-  _mapCenterTransform: {fileID: 7961382253705677113}
+  _mapCenterTransform: {fileID: 7904794151086220330}
 --- !u!1 &7961382255432482483
 GameObject:
   m_ObjectHideFlags: 0

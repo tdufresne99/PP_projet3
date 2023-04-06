@@ -383,7 +383,7 @@ MonoBehaviour:
   respawnMat: {fileID: 2100000, guid: 4dbc16399e5f60f419caad9e5b618358, type: 2}
   roomManagerCS: {fileID: 1847976238}
   navMeshAgentCS: {fileID: 547671857}
-  respawnTransform: {fileID: 0}
+  respawnTransform: {fileID: 1173790384}
   boyTransform: {fileID: 547671850}
   playerTransform: {fileID: 1898628245}
   wallsLayerMask:
@@ -402,6 +402,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _destination: {fileID: 0}
+--- !u!4 &1173790384 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7961382254429972161, guid: c028a852005dcca43b34c82f5aa60a37,
+    type: 3}
+  m_PrefabInstance: {fileID: 1847976237}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1606306429
 GameObject:
   m_ObjectHideFlags: 0
