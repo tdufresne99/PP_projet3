@@ -12,5 +12,6 @@ public enum RoomsEnum
     Room6,
     Room7,
     Room8,
+    Respawn,
     Couloir
 }
