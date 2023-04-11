@@ -19,6 +19,9 @@ namespace Boy
 
             // Play idle anim;
 
+            // Play sound;
+            _manager.boyAudioSource.PlayOneShot(_manager.boyRespawnClip);
+
             _respawnDestination = _manager.roomManagerCS.FindRandomRoomWithLightsOn(true);
             if(_respawnDestination != null) 
             {

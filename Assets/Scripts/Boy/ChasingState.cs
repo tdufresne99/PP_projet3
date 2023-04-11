@@ -19,6 +19,9 @@ namespace Boy
             // Play idle anim;
             _manager.boyAnimator.SetTrigger(_runTrigger);
 
+            _manager.boyAudioSource.PlayOneShot(_manager.boyRespawnClip);
+
+
             _manager.navMeshAgentCS.ToggleNavMeshAgent(true);
             _manager.navMeshAgentCS.ChangeAgentSpeed(_chaseMoveSpeed);
             
