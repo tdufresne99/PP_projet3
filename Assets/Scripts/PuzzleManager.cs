@@ -6,6 +6,12 @@ using UnityEngine;
 public class PuzzleManager : MonoBehaviour
 {
     [SerializeField] private bool[] _activatedPuzzleItems = new bool[] { false, false, false, false };
+    [SerializeField] private GameObject _endCanvas;
+    [SerializeField] private GameObject _smokeCanvas;
+    [SerializeField] private GameObject _deathCanvas;
+    [SerializeField] private GameObject _mother;
+    [SerializeField] private GameObject _boy;
+    [SerializeField] private GameObject _father;
 
     public void OnPuzzleItemPlaced(int index)
     {
@@ -13,7 +19,7 @@ public class PuzzleManager : MonoBehaviour
 
         VerifyPuzzle();
     }
-    
+
     public void OnPuzzleItemRemoved(int index)
     {
         _activatedPuzzleItems[index] = false;
@@ -36,5 +42,12 @@ public class PuzzleManager : MonoBehaviour
     private void OnPuzzleCompleted()
     {
         Debug.Log("Puzzle is completed!");
+        _mother.SetActive(false);
+        _boy.SetActive(false);
+        _father.SetActive(false);
+
+        _deathCanvas.SetActive(false);
+        _smokeCanvas.SetActive(false);
+        _endCanvas.SetActive(true);
     }
 }

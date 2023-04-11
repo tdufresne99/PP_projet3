@@ -8,7 +8,7 @@ namespace Father
         private FatherStateManager _manager;
         private Transform _newRoomTranform;
         private Coroutine _choosingRoom;
-        private float _choosingRoomWaitTime = 5f;
+        private float _choosingRoomWaitTime = 10f;
 
         public RoomChoosingState(FatherStateManager manager)
         {
@@ -33,9 +33,6 @@ namespace Father
         private void ChoosingRoom()
         {
             Debug.Log("Choosing a room to smoke...");
-
-            // Play idle anim;
-            _manager.GetComponent<MeshRenderer>().material = _manager.roomChooseMat;
 
             _newRoomTranform = _manager.roomManagerCS.FindRandomRoomWithLightsOn(false);
             if (_newRoomTranform != null)

@@ -44,7 +44,7 @@ ModelImporter:
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -383,18 +383,18 @@ ModelImporter:
         length: 0
         modified: 0
     skeleton:
-    - name: FilsIdle(Clone)
+    - name: Boy(Clone)
       parentName: 
       position: {x: 0, y: 0, z: 0}
       rotation: {x: 0, y: 0, z: 0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: Cube
-      parentName: FilsIdle(Clone)
+      parentName: Boy(Clone)
       position: {x: -0, y: 0.013187574, z: 0}
       rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
       scale: {x: 14.457094, y: 14.457094, z: 14.457094}
     - name: mixamorig:Hips
-      parentName: FilsIdle(Clone)
+      parentName: Boy(Clone)
       position: {x: 0.005849504, y: 0.9116155, z: -0.022274608}
       rotation: {x: 0.000000021725288, y: 2.269744e-16, z: 0.0000000016104944, w: 1}
       scale: {x: 0.99999994, y: 1, z: 1}

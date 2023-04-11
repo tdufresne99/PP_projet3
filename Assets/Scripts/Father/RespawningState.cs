@@ -6,7 +6,7 @@ namespace Father
     public class RespawningState : FatherState
     {
         private FatherStateManager _manager;
-        private float _respawnTime = 5f;
+        private float _respawnTime = 30f;
         private Coroutine _coroutineRespawn;
 
         public RespawningState(FatherStateManager manager)

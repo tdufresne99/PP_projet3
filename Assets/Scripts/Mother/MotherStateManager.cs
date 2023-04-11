@@ -19,6 +19,8 @@ namespace Mother
 
         public MotherState currentState;
 
+        public Animator motherAnimator;
+
         public IdlingState idlingState;
         public PatrollingState patrollingState;
         public SpottingState spottingState;
@@ -26,7 +28,7 @@ namespace Mother
 
 
         // Initialize state variables
-        private void Start()
+        private void Awake()
         {
             motherTransform = transform;
 
@@ -68,8 +70,8 @@ namespace Mother
 
         public void ResetState()
         {
-            TransitionToState(idlingState);
             motherTransform.position = _motherRespawnTransforms[Random.Range(0, _motherRespawnTransforms.Length)].position;
+            TransitionToState(idlingState);
         }
     }
 }

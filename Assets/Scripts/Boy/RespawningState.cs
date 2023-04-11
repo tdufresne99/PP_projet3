@@ -6,7 +6,7 @@ namespace Boy
     public class RespawningState : BoyState
     {
         private BoyStateManager _manager;
-        private float _respawnTime = 3f;
+        private float _respawnTime = 22f;
         private Coroutine _coroutineRespawn;
 
         public RespawningState(BoyStateManager manager)

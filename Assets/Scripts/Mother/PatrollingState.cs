@@ -5,10 +5,11 @@ namespace Mother
 {
     public class PatrollingState : MotherState
     {
-        private float _patrolMoveSpeed = 2f;
+        private float _patrolMoveSpeed = 0.6f;
         private MotherStateManager _manager;
         private float _distanceThreshold = 8f;
         private Vector3 _currentDestination;
+        private string _walkTrigger = "walk";
 
         public PatrollingState(MotherStateManager manager)
         {
@@ -19,7 +20,8 @@ namespace Mother
             // Enter patrolling state
 
             // Play patrol anim;
-            _manager.GetComponent<MeshRenderer>().material = _manager.patrolMat;
+            Debug.Log("SetTrigger walk");
+            _manager.motherAnimator.SetTrigger(_walkTrigger);
 
             // Play patrol sound;
 

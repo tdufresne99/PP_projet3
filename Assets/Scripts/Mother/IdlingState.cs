@@ -6,10 +6,11 @@ namespace Mother
     public class IdlingState : MotherState
     {
         private Coroutine _coroutineIdle;
-        private float _idleTime = 5f;
+        private float _idleTime = 12f;
         private float _distanceThreshold = 8f;
         private float _idleSpeed = 0;
         private MotherStateManager _manager;
+        private string _idleTrigger = "idle";
 
         public IdlingState(MotherStateManager manager)
         {
@@ -21,7 +22,7 @@ namespace Mother
             // Enter idling state
 
             // Play idle anim;
-            _manager.GetComponent<MeshRenderer>().material = _manager.idleMat;
+            _manager.motherAnimator.SetTrigger(_idleTrigger);
 
             // Play idle sound;
 

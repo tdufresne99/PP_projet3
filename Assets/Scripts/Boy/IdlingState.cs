@@ -6,8 +6,8 @@ namespace Boy
     public class IdlingState : BoyState
     {
         private float _distanceThreshold = 8f;
-        private float _waitingInTheDarknessTime = 3f;
-        private float _waitingBeforeRespawnTime = 5f;
+        private float _waitingInTheDarknessTime = 4f;
+        private float _waitingBeforeRespawnTime = 12f;
         private Coroutine _respawnCoroutine;
         private bool _isWaiting = true;
         private BoyStateManager _manager;
@@ -28,7 +28,7 @@ namespace Boy
 
         public override void Execute()
         {
-            if(!_isWaiting) DetectPlayer(_manager.boyTransform, _manager.playerTransform);
+            if(_isWaiting == false) DetectPlayer(_manager.boyTransform, _manager.playerTransform);
         }
 
         public override void Exit()

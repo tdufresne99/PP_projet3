@@ -11,6 +11,7 @@ namespace Mother
         private float _spotDuration = 2f;
         private float _spotMoveSpeed = 2.5f;
         private MotherStateManager _manager;
+        private string _runTrigger = "run";
 
         public SpottingState(MotherStateManager manager)
         {
@@ -21,7 +22,8 @@ namespace Mother
             // Enter spotting state
 
             // Play patrol anim;
-            _manager.GetComponent<MeshRenderer>().material = _manager.spotMat;
+            _manager.motherAnimator.SetTrigger(_runTrigger);
+            _manager.motherAnimator.speed = 0.4f;
 
             // Play patrol sound;
 
@@ -54,7 +56,7 @@ namespace Mother
         private IEnumerator CoroutineSpot()
         {
             var remaingSpotTime = _spotDuration;
-            while(remaingSpotTime > 0)
+            while (remaingSpotTime > 0)
             {
                 DetectPlayer(_manager.motherTransform, _manager.playerTransform);
                 remaingSpotTime -= 0.1f;
@@ -87,7 +89,7 @@ namespace Mother
             if (!isHit || hit.collider.gameObject == otherObjectTransform.gameObject)
             {
                 // There are no obstacles in the way, so the two objects have line of sight
-                if(spotCoroutine != null) _manager.StopCoroutine(spotCoroutine);
+                if (spotCoroutine != null) _manager.StopCoroutine(spotCoroutine);
                 _manager.TransitionToState(_manager.chasingState);
 
                 // Visualize the check by drawing a line between the two objects

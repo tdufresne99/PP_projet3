@@ -8,6 +8,8 @@ namespace Mother
         private float _distanceThreshold = 12f;
         private MotherStateManager _manager;
 
+        private string _runTrigger = "run";
+
         public ChasingState(MotherStateManager manager)
         {
             this._manager = manager;
@@ -18,7 +20,9 @@ namespace Mother
             // Enter patrolling state
 
             // Play chase anim;
-            _manager.GetComponent<MeshRenderer>().material = _manager.chaseMat;
+            _manager.motherAnimator.SetTrigger(_runTrigger);
+            _manager.motherAnimator.speed = 0.5f;
+
 
             // Play chase sound;
 

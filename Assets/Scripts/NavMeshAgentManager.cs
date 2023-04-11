@@ -4,7 +4,7 @@ using UnityEngine.AI;
 
 public class NavMeshAgentManager : MonoBehaviour
 {
-    private NavMeshAgent _agent;
+    [SerializeField] private NavMeshAgent _agent;
     [SerializeField] private Transform _destination;
 
     void Awake()
