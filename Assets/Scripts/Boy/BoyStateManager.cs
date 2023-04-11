@@ -19,6 +19,9 @@ namespace Boy
         public BoyState currentState;
 
         public Animator boyAnimator;
+        public AudioSource boyAudioSource;
+        public AudioClip boyRespawnClip;
+
         public RespawningState respawningState;
         public IdlingState idlingState;
         public LightClosingState lightClosingState;

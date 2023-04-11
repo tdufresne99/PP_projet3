@@ -21,6 +21,8 @@ namespace Boy
             Debug.Log("Waiting in the darkness...");
 
             // Play idle anim;
+            _manager.boyAudioSource.PlayOneShot(_manager.boyRespawnClip);
+
             
             _isWaiting = true;
             _manager.StartCoroutine(CoroutineWaitingInTheDarkness());
