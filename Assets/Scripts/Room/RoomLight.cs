@@ -20,7 +20,7 @@ public class RoomLight : MonoBehaviour
         }
     }
 
-    private void ToggleLight(bool activate)
+    public void ToggleLight(bool activate)
     {
         // Lumiere.SetActive(activate);
         string lightState = (activate) ? "allumé" : "fermé";

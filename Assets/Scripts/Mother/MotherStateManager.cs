@@ -4,6 +4,8 @@ namespace Mother
 {
     public class MotherStateManager : MonoBehaviour
     {
+        [SerializeField] private Transform[] _motherRespawnTransforms;
+
         public Material patrolMat;
         public Material spotMat;
         public Material chaseMat;
@@ -21,7 +23,7 @@ namespace Mother
         public PatrollingState patrollingState;
         public SpottingState spottingState;
         public ChasingState chasingState;
-        
+
 
         // Initialize state variables
         private void Start()
@@ -34,7 +36,7 @@ namespace Mother
             chasingState = new ChasingState(this);
 
             // Start in patrolling state
-            TransitionToState(patrollingState);
+            ResetState();
         }
         void Update()
         {
@@ -62,6 +64,12 @@ namespace Mother
         {
             int randIndex = Random.Range(0, roomManager.roomTransforms.Length);
             return roomManager.roomTransforms[randIndex].position;
+        }
+
+        public void ResetState()
+        {
+            TransitionToState(idlingState);
+            motherTransform.position = _motherRespawnTransforms[Random.Range(0, _motherRespawnTransforms.Length)].position;
         }
     }
 }

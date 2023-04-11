@@ -18,17 +18,16 @@ namespace Boy
             Debug.Log("Closing the light");
 
             // Play idle anim;
-            _manager.GetComponent<MeshRenderer>().material = _manager.lightCloseMat;
 
             _respawnDestination = _manager.roomManagerCS.FindRandomRoomWithLightsOn(true);
             if(_respawnDestination != null) 
             {
                 _lightToTurnOff = _manager.roomManagerCS.GetLightToTurnOff(_respawnDestination);
-                _manager.boyTransform.position = _respawnDestination.position;
+                _manager.boyTransform.position = _respawnDestination.position + Vector3.up;
             }
             else
             {
-                _manager.boyTransform.position = _manager.roomManagerCS.mapCenterTransform.position;
+                _manager.boyTransform.position = _manager.roomManagerCS.boyChaseRespawnTransform.position + Vector3.up;
                 _manager.TransitionToState(_manager.chasingState);
                 return;
             }

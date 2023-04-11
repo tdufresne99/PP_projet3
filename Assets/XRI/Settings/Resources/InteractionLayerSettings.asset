@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_LayerNames:
   - Default
-  - 
-  - 
-  - 
-  - 
+  - PuzzleItem1
+  - PuzzleItem2
+  - PuzzleItem3
+  - PuzzleItem4
   - 
   - 
   - 

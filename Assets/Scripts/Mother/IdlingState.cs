@@ -8,6 +8,7 @@ namespace Mother
         private Coroutine _coroutineIdle;
         private float _idleTime = 5f;
         private float _distanceThreshold = 8f;
+        private float _idleSpeed = 0;
         private MotherStateManager _manager;
 
         public IdlingState(MotherStateManager manager)
@@ -24,6 +25,7 @@ namespace Mother
 
             // Play idle sound;
 
+            _manager.navMeshDestinationCS.ChangeAgentSpeed(_idleSpeed);
             _coroutineIdle = _manager.StartCoroutine(CoroutineIdle());
         }
 

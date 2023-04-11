@@ -1,3 +1,5 @@
+using System;
+using System.Collections;
 using UnityEngine;
 
 namespace Father
@@ -8,12 +10,21 @@ namespace Father
         public Material roomChooseMat;
         public Material respawnMat;
 
+        [SerializeField] private PlayerDeathManager _playerDeathManagerCS;
+
+        [SerializeField] private ObjectCurrentRoom _playerCurrentRoomCS;
+        [SerializeField] private ObjectCurrentRoom _fatherCurrentRoomCS;
+
+        [SerializeField] private RoomsEnum _playerCurrentRoom;
+        [SerializeField] private RoomsEnum _fatherCurrentRoom;
+
+        private Coroutine _coroutineSmokePlayer;
+
         public RoomManager roomManagerCS;
         public Transform respawnTransform;
         public Transform fatherTransform;
         public Transform playerTransform;
         public Transform currentRoomTransform;
-        // public LayerMask wallsLayerMask;
 
 
         public FatherState currentState;
@@ -30,6 +41,35 @@ namespace Father
 
             // Start in patrolling state
             TransitionToState(respawningState);
+
+            if (_playerCurrentRoomCS != null) _playerCurrentRoomCS.OnRoomChanged += OnPlayerChangedRoom;
+            if (_fatherCurrentRoomCS != null) _fatherCurrentRoomCS.OnRoomChanged += OnFatherChangedRoom;
+        }
+
+        private void OnFatherChangedRoom(RoomsEnum room)
+        {
+            _fatherCurrentRoom = room;
+            if (_playerCurrentRoom == _fatherCurrentRoom && _fatherCurrentRoom != RoomsEnum.Couloir)
+            {
+                _playerDeathManagerCS.ToggleCoroutineSmoke(true);
+            }
+            else
+            {
+                _playerDeathManagerCS.ToggleCoroutineSmoke(false);
+            }
+        }
+
+        private void OnPlayerChangedRoom(RoomsEnum room)
+        {
+            _playerCurrentRoom = room;
+            if (_playerCurrentRoom == _fatherCurrentRoom && _fatherCurrentRoom != RoomsEnum.Couloir)
+            {
+                _playerDeathManagerCS.ToggleCoroutineSmoke(true);
+            }
+            else
+            {
+                _playerDeathManagerCS.ToggleCoroutineSmoke(false);
+            }
         }
 
         void Update()
@@ -39,7 +79,7 @@ namespace Father
                 // Transition to patrolling state by default
                 TransitionToState(respawningState);
             }
-
+            
             currentState.Execute();
         }
 
@@ -53,5 +93,12 @@ namespace Father
             currentState = newState;
             currentState.Enter();
         }
+
+        public void ResetState()
+        {
+            TransitionToState(respawningState);
+        }
+
+        
     }
 }

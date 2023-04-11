@@ -21,7 +21,6 @@ namespace Boy
             Debug.Log("Waiting in the darkness...");
 
             // Play idle anim;
-            _manager.GetComponent<MeshRenderer>().material = _manager.idleMat;
             
             _isWaiting = true;
             _manager.StartCoroutine(CoroutineWaitingInTheDarkness());

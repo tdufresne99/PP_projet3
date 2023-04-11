@@ -9,7 +9,7 @@ namespace Father
         private RoomSmoke _smokeToActivate;
         private Coroutine _coroutineSmoking;
         private RoomSmoke _currentRoomSmoke;
-        private float _smokingTime = 10f;
+        private float _smokingTime = 20f;
 
         public SmokingState(FatherStateManager manager)
         {
@@ -43,7 +43,7 @@ namespace Father
         public override void Exit()
         {
             _currentRoomSmoke.SmokeIsOn = false;
-            _manager.StopCoroutine(_coroutineSmoking);
+            if(_coroutineSmoking != null) _manager.StopCoroutine(_coroutineSmoking);
         }
 
         private IEnumerator CoroutineSmoking()

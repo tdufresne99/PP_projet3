@@ -18,6 +18,7 @@ namespace Boy
 
         public BoyState currentState;
 
+        public Animator boyAnimator;
         public RespawningState respawningState;
         public IdlingState idlingState;
         public LightClosingState lightClosingState;
@@ -56,6 +57,11 @@ namespace Boy
 
             currentState = newState;
             currentState.Enter();
+        }
+
+        public void ResetState()
+        {
+            TransitionToState(respawningState);
         }
     }
 }

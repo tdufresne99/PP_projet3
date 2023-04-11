@@ -19,7 +19,6 @@ namespace Father
             Debug.Log("Respawning");
 
             // Play idle anim;
-            _manager.GetComponent<MeshRenderer>().material = _manager.respawnMat;
 
             _manager.fatherTransform.position = _manager.respawnTransform.position;
 
@@ -33,7 +32,7 @@ namespace Father
 
         public override void Exit()
         {
-            _manager.StopCoroutine(_coroutineRespawn);
+            if(_coroutineRespawn != null) _manager.StopCoroutine(_coroutineRespawn);
         }
 
         private IEnumerator CoroutineRespawn()

@@ -18,13 +18,13 @@ TagManager:
   - Girl
   - Boy
   - Walls
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Grabable
+  - GrabingHand
+  - LightSwitch
+  - PuzzleItem1
+  - PuzzleItem2
+  - PuzzleItem3
+  - PuzzleItem4
   - 
   - 
   - 
