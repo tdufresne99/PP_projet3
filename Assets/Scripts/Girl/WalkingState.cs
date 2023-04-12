@@ -4,10 +4,13 @@ namespace Girl
 {
     public class WalkingState : GirlState
     {
-        private float _walkingSpeed = 3.5f;
+        private float _walkingSpeed = 1f;
         private GirlStateManager _manager;
         private float _distanceThreshold = 6f;
         private bool _isWalking = true;
+        private string idleTrigger = "idle";
+        private string walkTrigger = "walk";
+
 
         public WalkingState(GirlStateManager manager)
         {
@@ -17,6 +20,8 @@ namespace Girl
         {
             Debug.Log("girl is walking");
             // Play walk anim
+            _manager.girlAnimator.SetTrigger(walkTrigger);
+            _manager.girlNavMeshAgentManager.ChangeAgentSpeed(_walkingSpeed);
             _isWalking = true;
         }
 
@@ -27,18 +32,20 @@ namespace Girl
                 if(_isWalking == false)
                 {
                     // Play walk anim
+                    _manager.girlAnimator.SetTrigger(walkTrigger);
                     _isWalking = true;
+                    _manager.girlNavMeshAgentManager.ChangeAgentSpeed(_walkingSpeed);
                 }
-                _manager.girlNavMeshAgentManager.ChangeAgentSpeed(_walkingSpeed);
             }
             else
             {
                 if(_isWalking == true)
                 {
                     // Play idle anim
+                    _manager.girlAnimator.SetTrigger(idleTrigger);
                     _isWalking = false;
+                    _manager.girlNavMeshAgentManager.ChangeAgentSpeed(0);
                 }
-                _manager.girlNavMeshAgentManager.ChangeAgentSpeed(0);
             }
         }
 

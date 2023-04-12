@@ -13,7 +13,7 @@ namespace Girl
         public override void Enter()
         {
             // Play Idle Anim
-            // _manager.girlAnimator.SetTrigger(idleTrigger);
+            _manager.girlAnimator.SetTrigger(idleTrigger);
             Debug.Log("girl is idle");
         }
 

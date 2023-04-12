@@ -11,7 +11,6 @@ public class LookAt : MonoBehaviour
         if (target != null)
         {
             transform.LookAt(target);
-            Debug.Log("ok");
         }
     }
 }

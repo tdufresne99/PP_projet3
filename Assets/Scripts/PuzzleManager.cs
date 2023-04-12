@@ -17,6 +17,7 @@ public class PuzzleManager : MonoBehaviour
     [SerializeField] private GameObject[] _socketedPuzzleObjects;
     [SerializeField] private GameObject _bookObject;
     [SerializeField] private GirlVoiceLineManager _girlVoiceLineManagerCS;
+    [SerializeField] private RoomSmoke[] _roomSmokeCSs;
 
     void Start()
     {
@@ -82,6 +83,12 @@ public class PuzzleManager : MonoBehaviour
         {
             _endingGhostsObjects[i].SetActive(true);
         }
+        for (int i = 0; i < _roomSmokeCSs.Length; i++)
+        {
+            _roomSmokeCSs[i].SmokeIsOn = false;
+        }
+        _smokeCanvas.SetActive(false);
+        _deathCanvas.SetActive(false);
 
         ActivateBook();
     }
