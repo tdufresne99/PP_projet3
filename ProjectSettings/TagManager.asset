@@ -21,12 +21,12 @@ TagManager:
   - Grabable
   - GrabingHand
   - LightSwitch
-  - PuzzleItem1
-  - PuzzleItem2
-  - PuzzleItem3
-  - PuzzleItem4
-  - 
-  - 
+  - PuzzleItemGirl
+  - PuzzleItemBoy
+  - PuzzleItemFather
+  - PuzzleItemMother
+  - Book
+  - NoPlayerInteraction
   - 
   - 
   - 

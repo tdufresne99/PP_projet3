@@ -20,9 +20,6 @@ namespace Boy
 
             // Play idle anim;
 
-            _manager.boyAudioSource.PlayOneShot(_manager.boyRespawnClip);
-
-
             _manager.navMeshAgentCS.ToggleNavMeshAgent(false);
             _manager.boyTransform.position = _manager.respawnTransform.position;
 
@@ -31,7 +28,7 @@ namespace Boy
 
         public override void Execute()
         {
-            
+
         }
 
         public override void Exit()

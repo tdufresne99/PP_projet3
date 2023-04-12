@@ -43,9 +43,9 @@ public class PlayerDeathManager : MonoBehaviour
 
     private void ResetAIStates()
     {
-        _motherManagerCS.ResetState();
-        _fatherManagerCS.ResetState();
-        _boyManagerCS.ResetState();
+        if(_boyManagerCS.gameObject.activeInHierarchy) _boyManagerCS.ResetState();
+        if(_fatherManagerCS.gameObject.activeInHierarchy) _fatherManagerCS.ResetState();
+        if(_motherManagerCS.gameObject.activeInHierarchy) _motherManagerCS.ResetState();
     }
 
     private void ResetEnvironment()
@@ -109,6 +109,5 @@ public class PlayerDeathManager : MonoBehaviour
         yield return new WaitForSecondsRealtime(_timeToKillPlayerWithSmoke);
         StartCoroutineResetGame();
         _smokeStarted = false;
-
     }
 }

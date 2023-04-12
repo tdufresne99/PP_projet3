@@ -11,4 +11,6 @@ public class LayersEnum : MonoBehaviour
     public const int BoyLayer = 11;
     public const int GrabingHand = 14;
     public const int LightSwitch = 15;
+    public const int Book = 20;
+    public const int NoPlayerInteraction = 21;
 }
