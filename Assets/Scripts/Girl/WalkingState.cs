@@ -4,9 +4,10 @@ namespace Girl
 {
     public class WalkingState : GirlState
     {
-        private float _walkingSpeed;
+        private float _walkingSpeed = 3.5f;
         private GirlStateManager _manager;
         private float _distanceThreshold = 6f;
+        private bool _isWalking = true;
 
         public WalkingState(GirlStateManager manager)
         {
@@ -14,19 +15,38 @@ namespace Girl
         }
         public override void Enter()
         {
-            
+            Debug.Log("girl is walking");
+            // Play walk anim
+            _isWalking = true;
         }
 
         public override void Execute()
         {
-            
+            if(DetectPlayer(_manager.girlTransform, _manager.playerTransform))
+            {
+                if(_isWalking == false)
+                {
+                    // Play walk anim
+                    _isWalking = true;
+                }
+                _manager.girlNavMeshAgentManager.ChangeAgentSpeed(_walkingSpeed);
+            }
+            else
+            {
+                if(_isWalking == true)
+                {
+                    // Play idle anim
+                    _isWalking = false;
+                }
+                _manager.girlNavMeshAgentManager.ChangeAgentSpeed(0);
+            }
         }
 
         public override void Exit()
         {
             
         }
-        private void DetectPlayer(Transform objectTransform, Transform otherObjectTransform)
+        private bool DetectPlayer(Transform objectTransform, Transform otherObjectTransform)
         {
             // Get the position of the two GameObjects
             Vector3 object1Pos = objectTransform.position;
@@ -36,7 +56,7 @@ namespace Girl
             if ((object1Pos - object2Pos).sqrMagnitude > _distanceThreshold * _distanceThreshold)
             {
                 // The two objects are too far apart for a line of sight check, do not perform raycast
-                return;
+                return false;
             }
 
             // Find the direction from object1 to object2
@@ -51,16 +71,15 @@ namespace Girl
             {
                 // There are no obstacles in the way, so the two objects have line of sight
                 // Visualize the check by drawing a line between the two objects
-                _manager.girlNavMeshAgentManager.ChangeAgentSpeed(_walkingSpeed);
                 Debug.DrawLine(object1Pos, object2Pos, Color.green, 0.1f);
+                return true;
             }
             else
             {
                 // There is an obstacle in the way, so the two objects do not have line of sight
                 // Visualize the check by drawing a line between the two objects up to the point of the hit
-
-                _manager.girlNavMeshAgentManager.ChangeAgentSpeed(0);
                 Debug.DrawLine(object1Pos, hit.point, Color.red, 0.1f);
+                return false;
             }
         }
     }

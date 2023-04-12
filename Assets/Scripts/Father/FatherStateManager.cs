@@ -97,8 +97,6 @@ namespace Father
         public void ResetState()
         {
             TransitionToState(respawningState);
-        }
-
-        
+        }  
     }
 }

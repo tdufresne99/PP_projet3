@@ -6,6 +6,7 @@ namespace Girl
     public class GirlWayPoint : MonoBehaviour
     {
         [SerializeField] private GirlWaypointManager _wayPointManager;
+        [SerializeField] private bool _activateWaypoint;
         private BoxCollider _boxCollider;
 
         void Start()
@@ -16,7 +17,8 @@ namespace Girl
         {
             if(other.gameObject.layer == LayersEnum.PlayerLayer)
             {
-                _wayPointManager.ActivateNextWayPoint();
+                Destroy(_boxCollider);
+                _wayPointManager.OnWayPointReached(_activateWaypoint);
             }
         }
     }    

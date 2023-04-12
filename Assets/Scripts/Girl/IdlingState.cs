@@ -1,3 +1,5 @@
+using UnityEngine;
+
 namespace Girl
 {
     public class IdlingState : GirlState
@@ -10,7 +12,9 @@ namespace Girl
         }
         public override void Enter()
         {
-            _manager.girlAnimator.SetTrigger(idleTrigger);
+            // Play Idle Anim
+            // _manager.girlAnimator.SetTrigger(idleTrigger);
+            Debug.Log("girl is idle");
         }
 
         public override void Execute()

@@ -7,6 +7,8 @@ namespace Girl
     public class GirlStateManager : MonoBehaviour
     {
         public NavMeshAgentManager girlNavMeshAgentManager;
+        public Transform girlTransform;
+        public Transform playerTransform;
         public LayerMask wallsLayerMask;
         public Animator girlAnimator;
         public GirlState currentState;
@@ -14,6 +16,8 @@ namespace Girl
         public WalkingState walkingState;
         private void Awake()
         {
+            girlTransform = transform;
+
             idlingState = new IdlingState(this);
             walkingState = new WalkingState(this);
         }
