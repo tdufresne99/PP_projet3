@@ -4,9 +4,14 @@ public class RoomLight : MonoBehaviour
 {
     [SerializeField] private bool _lightIsOn;
     [SerializeField] private GameObject _fakeLight;
+    [SerializeField] private Material _onMat;
+    [SerializeField] private Material _offMat;
+    [SerializeField] private MeshRenderer _switchMeshRenderer;
+
     void Start()
     {
         if (_fakeLight != null) _fakeLight.SetActive(_lightIsOn);
+        _switchMeshRenderer.material = _lightIsOn ? _onMat : _offMat;
     }
 
     public bool LightIsOn
@@ -17,6 +22,8 @@ public class RoomLight : MonoBehaviour
             if (_lightIsOn == value) return;
             _lightIsOn = value;
             _fakeLight.SetActive(_lightIsOn);
+            _switchMeshRenderer.material = _lightIsOn ? _onMat : _offMat;
+
         }
     }
 

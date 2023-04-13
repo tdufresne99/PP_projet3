@@ -15,11 +15,10 @@ public class PlayerDeathManager : MonoBehaviour
     [SerializeField] private Transform _playerTransform;
     [SerializeField] private Transform _playerRespawnTransform;
     private string _fadeOutTrigger = "fadeOut";
-    private string _fadeInTrigger = "fadeIn";
+    private string _fadeInTrigger = "isFadingIn";
 
     [SerializeField] private Animator _smokeCanvasAnimator;
     private string _smokeOnTrigger = "smokeIsOn";
-    private string _smokeOffTrigger = "smokeIsOff";
     private bool _smokeStarted = false;
 
     [SerializeField] private float _timeToKillPlayerWithSmoke = 5f;
@@ -29,7 +28,7 @@ public class PlayerDeathManager : MonoBehaviour
 
     void Start()
     {
-        _deathCanvasAnimator.SetTrigger(_fadeInTrigger);
+        _deathCanvasAnimator.SetBool(_fadeInTrigger, true);
     }
 
     private IEnumerator CoroutineResetGameState()
@@ -43,9 +42,9 @@ public class PlayerDeathManager : MonoBehaviour
 
     private void ResetAIStates()
     {
-        if(_boyManagerCS.gameObject.activeInHierarchy) _boyManagerCS.ResetState();
-        if(_fatherManagerCS.gameObject.activeInHierarchy) _fatherManagerCS.ResetState();
-        if(_motherManagerCS.gameObject.activeInHierarchy) _motherManagerCS.ResetState();
+        if (_boyManagerCS.gameObject.activeInHierarchy) _boyManagerCS.ResetState();
+        if (_fatherManagerCS.gameObject.activeInHierarchy) _fatherManagerCS.ResetState();
+        if (_motherManagerCS.gameObject.activeInHierarchy) _motherManagerCS.ResetState();
     }
 
     private void ResetEnvironment()
@@ -60,8 +59,8 @@ public class PlayerDeathManager : MonoBehaviour
 
     private void PlayDeathCanvasAnimations()
     {
-        _deathCanvasAnimator.SetTrigger(_fadeOutTrigger);
-        Invoke("FadeInPlayerDeathCanvas", 4f);
+        _deathCanvasAnimator.SetBool(_fadeInTrigger, false);
+        Invoke("FadeOutPlayerDeathCanvas", 4f);
     }
 
     public void ResetPlayerPosition()
@@ -69,10 +68,9 @@ public class PlayerDeathManager : MonoBehaviour
         _playerTransform.position = _playerRespawnTransform.position;
     }
 
-    private void FadeInPlayerDeathCanvas()
+    private void FadeOutPlayerDeathCanvas()
     {
-        _deathCanvasAnimator.SetTrigger(_fadeInTrigger);
-        Invoke("ToggleDeathCanvas", 2f);
+        _deathCanvasAnimator.SetBool(_fadeInTrigger, true);
     }
 
     public void StartCoroutineResetGame()
@@ -96,8 +94,8 @@ public class PlayerDeathManager : MonoBehaviour
         }
         else if (_smokeStarted == true)
         {
-            if(_coroutineSmokePlayer != null) StopCoroutine(_coroutineSmokePlayer);
-            _smokeCanvasAnimator.SetTrigger(_smokeOffTrigger);
+            if (_coroutineSmokePlayer != null) StopCoroutine(_coroutineSmokePlayer);
+            _smokeCanvasAnimator.SetBool(_smokeOnTrigger, false);
             _smokeStarted = false;
         }
     }
