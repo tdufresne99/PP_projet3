@@ -4,7 +4,8 @@ namespace Girl
 {
     public class WalkingState : GirlState
     {
-        private float _walkingSpeed = 1f;
+        private float _walkingSpeed = 1.2f;
+        private float _animSpeed = 1.4f;
         private GirlStateManager _manager;
         private float _distanceThreshold = 6f;
         private bool _isWalking = true;
@@ -22,6 +23,7 @@ namespace Girl
             // Play walk anim
             _manager.girlAnimator.SetTrigger(walkTrigger);
             _manager.girlNavMeshAgentManager.ChangeAgentSpeed(_walkingSpeed);
+            _manager.girlAnimator.speed = _animSpeed;
             _isWalking = true;
         }
 
