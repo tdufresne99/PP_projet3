@@ -58,7 +58,7 @@ namespace Girl
             Debug.Log("coroutine check activated");
             while (true)
             {
-                if(Vector3.Distance(_girlStateManagerCS.girlTransform.position, _currentWaypoint.position) < 1f)
+                if(Vector3.Distance(_girlStateManagerCS.girlTransform.position, _currentWaypoint.position) < 0.1f)
                 {
                     OnWayPointReachedCheck();
                 }
