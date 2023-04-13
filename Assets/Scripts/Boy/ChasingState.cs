@@ -6,7 +6,8 @@ namespace Boy
     {
         private BoyStateManager _manager;
         private float _chaseMoveSpeed = 4f;
-        private string _runTrigger = "run";
+        private string _boolTrigger = "isChasing";
+
 
         public ChasingState(BoyStateManager manager)
         {
@@ -17,7 +18,7 @@ namespace Boy
             Debug.Log("RUN!");
 
             // Play idle anim;
-            _manager.boyAnimator.SetTrigger(_runTrigger);
+            _manager.boyAnimator.SetBool(_boolTrigger, true);
 
             _manager.navMeshAgentCS.ToggleNavMeshAgent(true);
             _manager.navMeshAgentCS.ChangeAgentSpeed(_chaseMoveSpeed);

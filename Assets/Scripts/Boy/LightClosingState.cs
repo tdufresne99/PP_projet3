@@ -6,6 +6,7 @@ namespace Boy
     {
         private Transform _respawnDestination;
         private RoomLight _lightToTurnOff;
+        private string _boolTrigger = "isChasing";
 
         private BoyStateManager _manager;
 
@@ -18,12 +19,14 @@ namespace Boy
             Debug.Log("Closing the light");
 
             // Play idle anim;
+            _manager.boyAnimator.SetBool(_boolTrigger, false);
+
 
             // Play sound;
             _manager.boyAudioSource.PlayOneShot(_manager.boyRespawnClip);
 
             _respawnDestination = _manager.roomManagerCS.FindRandomRoomWithLightsOn(true);
-            if(_respawnDestination != null) 
+            if (_respawnDestination != null)
             {
                 _lightToTurnOff = _manager.roomManagerCS.GetLightToTurnOff(_respawnDestination);
                 _manager.boyTransform.position = _respawnDestination.position + Vector3.up;
@@ -34,8 +37,8 @@ namespace Boy
                 _manager.TransitionToState(_manager.chasingState);
                 return;
             }
-            
-            if(_lightToTurnOff != null) 
+
+            if (_lightToTurnOff != null)
             {
                 _lightToTurnOff.LightIsOn = false;
 
@@ -45,12 +48,12 @@ namespace Boy
 
         public override void Execute()
         {
-            
+
         }
 
         public override void Exit()
         {
-            
+
         }
     }
 }

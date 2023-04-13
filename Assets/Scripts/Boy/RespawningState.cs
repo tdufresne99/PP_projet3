@@ -6,8 +6,11 @@ namespace Boy
     public class RespawningState : BoyState
     {
         private BoyStateManager _manager;
-        private float _respawnTime = 22f;
+        private float _respawnTime = 5f;
         private Coroutine _coroutineRespawn;
+        private string _boolTrigger = "isChasing";
+
+
 
         public RespawningState(BoyStateManager manager)
         {
@@ -19,6 +22,8 @@ namespace Boy
             Debug.Log("Respawning");
 
             // Play idle anim;
+            _manager.boyAnimator.SetBool(_boolTrigger, false);
+
 
             _manager.navMeshAgentCS.ToggleNavMeshAgent(false);
             _manager.boyTransform.position = _manager.respawnTransform.position;

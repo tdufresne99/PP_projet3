@@ -18,8 +18,8 @@ public class PlayerDeathManager : MonoBehaviour
     private string _fadeInTrigger = "fadeIn";
 
     [SerializeField] private Animator _smokeCanvasAnimator;
-    private string _smokeOnTrigger = "smokeOn";
-    private string _smokeOffTrigger = "smokeOff";
+    private string _smokeOnTrigger = "smokeIsOn";
+    private string _smokeOffTrigger = "smokeIsOff";
     private bool _smokeStarted = false;
 
     [SerializeField] private float _timeToKillPlayerWithSmoke = 5f;
@@ -105,7 +105,7 @@ public class PlayerDeathManager : MonoBehaviour
     private IEnumerator CoroutineSmokePlayer()
     {
         _smokeStarted = true;
-        _smokeCanvasAnimator.SetTrigger(_smokeOnTrigger);
+        _smokeCanvasAnimator.SetBool(_smokeOnTrigger, true);
         yield return new WaitForSecondsRealtime(_timeToKillPlayerWithSmoke);
         StartCoroutineResetGame();
         _smokeStarted = false;

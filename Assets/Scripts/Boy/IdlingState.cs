@@ -10,6 +10,8 @@ namespace Boy
         private float _waitingBeforeRespawnTime = 12f;
         private Coroutine _respawnCoroutine;
         private bool _isWaiting = true;
+        private string _boolTrigger = "isChasing";
+
         private BoyStateManager _manager;
 
         public IdlingState(BoyStateManager manager)
@@ -21,6 +23,7 @@ namespace Boy
             Debug.Log("Waiting in the darkness...");
 
             // Play idle anim;
+            _manager.boyAnimator.SetBool(_boolTrigger, false);
 
             _isWaiting = true;
             _manager.StartCoroutine(CoroutineWaitingInTheDarkness());
