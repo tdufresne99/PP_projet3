@@ -17,6 +17,7 @@ public class PuzzleManager : MonoBehaviour
     [SerializeField] private GameObject[] _socketedPuzzleObjects;
     [SerializeField] private GameObject _bookObject;
     [SerializeField] private GirlVoiceLineManager _girlVoiceLineManagerCS;
+    [SerializeField] private GirlWaypointManager _girlWaypointManagerCS;
     [SerializeField] private RoomSmoke[] _roomSmokeCSs;
 
     void Start()
@@ -26,7 +27,8 @@ public class PuzzleManager : MonoBehaviour
 
     public void OnPuzzleItemPlaced(int index)
     {
-        _socketedPuzzleObjects[index].GetComponent<XRGrabInteractable>().enabled = false;
+        if(index == 0) _girlWaypointManagerCS.TeleportGirl();
+        _socketedPuzzleObjects[index].GetComponent<XRGrabInteractable>().interactionLayers &= ~(1 << 0);
         _activatedPuzzleItems[index] = true;
 
         if(index == 0) Destroy(_girlWaypointManager);

@@ -9,6 +9,7 @@ namespace Girl
     {
         [SerializeField] private GameObject _puzzleItemGirl;
         [SerializeField] private TextMeshProUGUI _girlText;
+        [SerializeField] private Animator _girlAnimator;
         private string[] _girlLinesIntro = new string[]
         {
             "Oh ! Un visiteur... dans ma maison ? Ça fait longtemps ! Tu dois être ici pour le livre de mes parents. Il leur a causé beaucoup d'ennuis, tu sais... Prends la lampe de poche, tu en auras besoin... Et suis-moi !",
@@ -39,6 +40,9 @@ namespace Girl
         }
         public void PlayGirlVoicelineObject(int index)
         {
+            _girlAnimator.SetBool("isWalking", false);
+            CancelInvoke();
+            gameObject.GetComponent<LookAt>().enabled = true;
             _girlText.text = _girlLinesObjects[index];
         }
 

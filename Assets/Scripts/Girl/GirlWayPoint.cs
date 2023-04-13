@@ -15,11 +15,11 @@ namespace Girl
         }
         void OnTriggerEnter(Collider other)
         {
-            if(other.gameObject.layer == LayersEnum.PlayerLayer)
+            if (other.gameObject.layer == LayersEnum.PlayerLayer)
             {
-                Destroy(_boxCollider);
-                _wayPointManager.OnWayPointReached(_activateWaypoint);
+                if (_boxCollider != null) Destroy(_boxCollider);
+                if (_wayPointManager != null) _wayPointManager.OnWayPointReached(_activateWaypoint);
             }
         }
-    }    
+    }
 }

@@ -24,7 +24,7 @@ namespace Girl
         public void OnWayPointReached(bool activateWaypoint)
         {
             PlayVoiceLine();
-            if(activateWaypoint) ActivateNextWayPoint();
+            if (activateWaypoint) ActivateNextWayPoint();
         }
 
         private void PlayVoiceLine()
@@ -36,13 +36,13 @@ namespace Girl
         public void ActivateNextWayPoint()
         {
             _currentWaypointIndex++;
-            if(_currentWaypointIndex >= _wayPoints.Length) 
+            if (_currentWaypointIndex >= _wayPoints.Length)
             {
                 Destroy(this.gameObject);
                 return;
             }
             _currentWaypoint = _wayPoints[_currentWaypointIndex];
-            
+
             Invoke("ChangeGirlNavMeshAgentDestination", 1f);
         }
 
@@ -58,7 +58,7 @@ namespace Girl
             Debug.Log("coroutine check activated");
             while (true)
             {
-                if(Vector3.Distance(_girlStateManagerCS.girlTransform.position, _currentWaypoint.position) < 0.1f)
+                if (Vector3.Distance(_girlStateManagerCS.girlTransform.position, _currentWaypoint.position) < 0.1f)
                 {
                     OnWayPointReachedCheck();
                 }
@@ -71,7 +71,12 @@ namespace Girl
             StopCoroutine(_CoroutineWayPointReachedCheck);
 
             _girlStateManagerCS.TransitionToState(_girlStateManagerCS.idlingState);
-            _wayPointsColliders[_currentWaypointIndex].enabled = true;
+            if (_wayPointsColliders[_currentWaypointIndex] != null) _wayPointsColliders[_currentWaypointIndex].enabled = true;
+        }
+
+        public void TeleportGirl()
+        {
+            _girlStateManagerCS.girlTransform.position = _wayPoints[_wayPoints.Length - 1].position;
         }
     }
 }
