@@ -34,7 +34,7 @@ Transform:
   m_Children:
   - {fileID: 543450651936601520}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!136 &7919924345587263565
 CapsuleCollider:
@@ -1292,6 +1292,11 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: 0.99899036
       objectReference: {fileID: 0}
+    - target: {fileID: 8417361359673230750, guid: 5d515e1e72732a84dba657b58378ad03,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d6ed453d58097dd4c91ee0804daffc0d, type: 2}
     - target: {fileID: 8447082967072642302, guid: 5d515e1e72732a84dba657b58378ad03,
         type: 3}
       propertyPath: m_LocalPosition.x

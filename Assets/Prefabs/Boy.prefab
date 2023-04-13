@@ -38,7 +38,7 @@ Transform:
   m_Children:
   - {fileID: 543450652024360001}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!136 &3371013914393682
 CapsuleCollider:
@@ -142,6 +142,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4096
   boyAnimator: {fileID: 5866666020363572795}
+  boyAudioSource: {fileID: 0}
+  boyRespawnClip: {fileID: 0}
 --- !u!114 &1911566401
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -293,6 +295,11 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 03a590a8ad4995343977c70dcff447c6, type: 2}
+    - target: {fileID: 8417361359673230750, guid: 80bcacac2ac4b974099467f68fedf064,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a1c8bdf4df697b54ca930214459d4e09, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
