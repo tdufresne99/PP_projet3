@@ -69,7 +69,7 @@ public class EndingManager : MonoBehaviour
 
     private void LoadGoodEndingScene()
     {
-        SceneManager.LoadScene("goodEnding");
+        GameManager.instance.LoadSceneWithString("GoodEnding");
     }
 
     private void ActivateBadEndingCanvas()
@@ -80,6 +80,6 @@ public class EndingManager : MonoBehaviour
 
     private void LoadBadEndingScene()
     {
-        SceneManager.LoadScene("badEnding");
+        GameManager.instance.LoadSceneWithString("BadEnding");
     }
 }
