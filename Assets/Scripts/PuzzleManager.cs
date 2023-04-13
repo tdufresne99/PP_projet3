@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Girl;
-
+using UnityEngine.XR.Interaction.Toolkit;
 public class PuzzleManager : MonoBehaviour
 {
     [SerializeField] private GameObject _girlWaypointManager;
@@ -26,7 +26,7 @@ public class PuzzleManager : MonoBehaviour
 
     public void OnPuzzleItemPlaced(int index)
     {
-        _socketedPuzzleObjects[index].layer = LayersEnum.NoPlayerInteraction;
+        _socketedPuzzleObjects[index].GetComponent<XRGrabInteractable>().enabled = false;
         _activatedPuzzleItems[index] = true;
 
         if(index == 0) Destroy(_girlWaypointManager);
@@ -90,6 +90,7 @@ public class PuzzleManager : MonoBehaviour
         _smokeCanvas.SetActive(false);
         _deathCanvas.SetActive(false);
 
+        _girlVoiceLineManagerCS.PlayBookVoiceline();
         ActivateBook();
     }
 

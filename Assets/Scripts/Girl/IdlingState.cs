@@ -5,7 +5,7 @@ namespace Girl
     public class IdlingState : GirlState
     {
         private GirlStateManager _manager;
-        private string idleTrigger = "idle";
+        private string walkTrigger = "isWalking";
         public IdlingState(GirlStateManager manager)
         {
             this._manager = manager;
@@ -13,7 +13,7 @@ namespace Girl
         public override void Enter()
         {
             // Play Idle Anim
-            _manager.girlAnimator.SetTrigger(idleTrigger);
+            _manager.girlAnimator.SetBool(walkTrigger, false);
             Debug.Log("girl is idle");
         }
 

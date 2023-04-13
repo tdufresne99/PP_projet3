@@ -11,6 +11,7 @@ public class EndingManager : MonoBehaviour
     [SerializeField] private Transform[] _goodEndingTransforms;
 
     [SerializeField] private Transform[] _badEndingTransforms;
+    [SerializeField] private GameObject _girlObject;
 
     [SerializeField] private GirlVoiceLineManager _girlVoicelineManager;
     [SerializeField] private GirlStateManager _girlStateManager;
@@ -21,9 +22,13 @@ public class EndingManager : MonoBehaviour
     {
         Debug.Log("Good ending");
 
+        _girlObject.SetActive(false);
+
         for (int i = 0; i < _ghostTransforms.Length; i++)
         {
             _ghostTransforms[i].position = _goodEndingTransforms[i].position;
+            var move = _ghostTransforms[i].GetComponent<MoveUpwards>();
+            move.enabled = true;
         }
         _girlStateManager.girlNavMeshAgentManager.ChangeDestination(_girlStateManager.girlTransform.position);
         var lookAt = _girlStateManager.gameObject.AddComponent<LookAt>();
@@ -39,9 +44,15 @@ public class EndingManager : MonoBehaviour
     public void OnBadEnding()
     {
         Debug.Log("Bad ending");
+
+        _girlObject.SetActive(false);
+
         for (int i = 0; i < _ghostTransforms.Length; i++)
         {
             _ghostTransforms[i].position = _badEndingTransforms[i].position;
+            var move = _ghostTransforms[i].GetComponent<MoveTowardsObject>();
+            move.enabled = true;
+            move.targetObject = _girlStateManager.playerTransform;
         }
         _girlStateManager.girlNavMeshAgentManager.ChangeDestination(_girlStateManager.girlTransform.position);
         var lookAt = _girlStateManager.gameObject.AddComponent<LookAt>();
