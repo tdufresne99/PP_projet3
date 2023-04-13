@@ -9,8 +9,7 @@ namespace Girl
         private GirlStateManager _manager;
         private float _distanceThreshold = 6f;
         private bool _isWalking = true;
-        private string idleTrigger = "idle";
-        private string walkTrigger = "walk";
+        private string walkTrigger = "isWalking";
 
 
         public WalkingState(GirlStateManager manager)
@@ -21,7 +20,8 @@ namespace Girl
         {
             Debug.Log("girl is walking");
             // Play walk anim
-            _manager.girlAnimator.SetTrigger(walkTrigger);
+            _manager.girlAnimator.SetBool(walkTrigger, true);
+
             _manager.girlNavMeshAgentManager.ChangeAgentSpeed(_walkingSpeed);
             _manager.girlAnimator.speed = _animSpeed;
             _isWalking = true;
@@ -29,22 +29,22 @@ namespace Girl
 
         public override void Execute()
         {
-            if(DetectPlayer(_manager.girlTransform, _manager.playerTransform))
+            if (DetectPlayer(_manager.girlTransform, _manager.playerTransform))
             {
-                if(_isWalking == false)
+                if (_isWalking == false)
                 {
                     // Play walk anim
-                    _manager.girlAnimator.SetTrigger(walkTrigger);
+                    _manager.girlAnimator.SetBool(walkTrigger, true);
                     _isWalking = true;
                     _manager.girlNavMeshAgentManager.ChangeAgentSpeed(_walkingSpeed);
                 }
             }
             else
             {
-                if(_isWalking == true)
+                if (_isWalking == true)
                 {
                     // Play idle anim
-                    _manager.girlAnimator.SetTrigger(idleTrigger);
+                    _manager.girlAnimator.SetBool(walkTrigger, false);
                     _isWalking = false;
                     _manager.girlNavMeshAgentManager.ChangeAgentSpeed(0);
                 }
@@ -53,7 +53,7 @@ namespace Girl
 
         public override void Exit()
         {
-            
+
         }
         private bool DetectPlayer(Transform objectTransform, Transform otherObjectTransform)
         {
