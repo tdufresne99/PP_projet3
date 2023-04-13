@@ -10,7 +10,8 @@ namespace Girl
         private bool voiceLinePlayed = false;
         public void OnGirlObjectGrabbed()
         {
-            if(voiceLinePlayed == false) _girlWaypointManager.OnWayPointReached(true);
+            if(voiceLinePlayed == false && _girlWaypointManager != null) _girlWaypointManager.OnWayPointReached(true);
+            
             voiceLinePlayed = true;
         }
     }

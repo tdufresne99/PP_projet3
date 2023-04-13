@@ -27,12 +27,11 @@ public class EndingManager : MonoBehaviour
         for (int i = 0; i < _ghostTransforms.Length; i++)
         {
             _ghostTransforms[i].position = _goodEndingTransforms[i].position;
+            Destroy(_ghostTransforms[i].gameObject.GetComponent<Rigidbody>());
+            Destroy(_ghostTransforms[i].gameObject.GetComponent<CapsuleCollider>());
             var move = _ghostTransforms[i].GetComponent<MoveUpwards>();
             move.enabled = true;
         }
-        _girlStateManager.girlNavMeshAgentManager.ChangeDestination(_girlStateManager.girlTransform.position);
-        var lookAt = _girlStateManager.gameObject.AddComponent<LookAt>();
-        lookAt.target = _girlStateManager.playerTransform;
 
         // Girl voice line
         _girlVoicelineManager.PlayEndingVoiceline(true);
@@ -54,9 +53,6 @@ public class EndingManager : MonoBehaviour
             move.enabled = true;
             move.targetObject = _girlStateManager.playerTransform;
         }
-        _girlStateManager.girlNavMeshAgentManager.ChangeDestination(_girlStateManager.girlTransform.position);
-        var lookAt = _girlStateManager.gameObject.AddComponent<LookAt>();
-        lookAt.target = _girlStateManager.playerTransform;
 
         // Girl voice line
         _girlVoicelineManager.PlayEndingVoiceline(false);

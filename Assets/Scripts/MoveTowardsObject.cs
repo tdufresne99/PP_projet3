@@ -3,7 +3,7 @@ using UnityEngine;
 public class MoveTowardsObject : MonoBehaviour
 {
     public Transform targetObject;
-    [SerializeField] private float speed = 1f;
+    private float speed = 0.6f;
     
     private void Update()
     {
