@@ -13,6 +13,7 @@ public class EndingManager : MonoBehaviour
     [SerializeField] private Transform[] _badEndingTransforms;
 
     [SerializeField] private GirlVoiceLineManager _girlVoicelineManager;
+    [SerializeField] private GirlStateManager _girlStateManager;
 
     [SerializeField] private GameObject _EndingCanvas;
 
@@ -24,6 +25,9 @@ public class EndingManager : MonoBehaviour
         {
             _ghostTransforms[i].position = _goodEndingTransforms[i].position;
         }
+        _girlStateManager.girlNavMeshAgentManager.ChangeDestination(_girlStateManager.girlTransform.position);
+        var lookAt = _girlStateManager.gameObject.AddComponent<LookAt>();
+        lookAt.target = _girlStateManager.playerTransform;
 
         // Girl voice line
         _girlVoicelineManager.PlayEndingVoiceline(true);
@@ -39,6 +43,9 @@ public class EndingManager : MonoBehaviour
         {
             _ghostTransforms[i].position = _badEndingTransforms[i].position;
         }
+        _girlStateManager.girlNavMeshAgentManager.ChangeDestination(_girlStateManager.girlTransform.position);
+        var lookAt = _girlStateManager.gameObject.AddComponent<LookAt>();
+        lookAt.target = _girlStateManager.playerTransform;
 
         // Girl voice line
         _girlVoicelineManager.PlayEndingVoiceline(false);

@@ -8,7 +8,7 @@ namespace Father
         private FatherStateManager _manager;
         private Transform _newRoomTranform;
         private Coroutine _choosingRoom;
-        private float _choosingRoomWaitTime = 10f;
+        private float _choosingRoomWaitTime = 5f;
 
         public RoomChoosingState(FatherStateManager manager)
         {
