@@ -11,10 +11,6 @@ public class RoomLightSwitch : MonoBehaviour
     private bool _canInteractWithSwitch = true;
     private float _lightInteractionDelay = 0.5f;
     
-    void Start()
-    {
-        _switchMeshRenderer.material = _roomLightCS.LightIsOn ? _onMat : _offMat;
-    }
     public void ToggleSwitch()
     {
         Debug.Log("Toggle switch");
@@ -23,7 +19,6 @@ public class RoomLightSwitch : MonoBehaviour
         _canInteractWithSwitch = false;
         Invoke("ActivateSwitchInteraction", _lightInteractionDelay);
         _roomLightCS.LightIsOn = !_roomLightCS.LightIsOn;
-        _switchMeshRenderer.material = _roomLightCS.LightIsOn ? _onMat : _offMat;
     }
 
     private void ActivateSwitchInteraction()

@@ -25,7 +25,7 @@ namespace Father
         public Transform fatherTransform;
         public Transform playerTransform;
         public Transform currentRoomTransform;
-
+        public Animator canvasSmoke;
 
         public FatherState currentState;
 

@@ -8,7 +8,7 @@ public class RoomSmoke : MonoBehaviour
     [SerializeField] private GameObject _smoke;
     void Start()
     {
-        // if (_smoke != null) _smoke.SetActive(_smokeIsOn);
+        if (_smoke != null) _smoke.SetActive(_smokeIsOn);
     }
 
     public bool SmokeIsOn
@@ -18,14 +18,7 @@ public class RoomSmoke : MonoBehaviour
         {
             if(_smokeIsOn == value) return;
             _smokeIsOn = value;
-            // _smoke.SetActive(_smokeIsOn);
+            _smoke.SetActive(_smokeIsOn);
         }
-    }
-
-    private void ToggleSmoke(bool activate)
-    {
-        // Lumiere.SetActive(activate);
-        string lightState = (activate) ? "activé" : "desactivé";
-        Debug.Log("La fumée de la salle " + transform.parent.name + " est maintenant " + lightState);
     }
 }

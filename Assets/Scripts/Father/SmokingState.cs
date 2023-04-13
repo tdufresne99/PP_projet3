@@ -9,7 +9,6 @@ namespace Father
         private RoomSmoke _smokeToActivate;
         private Coroutine _coroutineSmoking;
         private RoomSmoke _currentRoomSmoke;
-        private Animator _canvasSmoke;
         private float _smokingTime = 22f;
 
         public SmokingState(FatherStateManager manager)
@@ -42,7 +41,7 @@ namespace Father
             _currentRoomSmoke.SmokeIsOn = false;
             if(_coroutineSmoking != null) _manager.StopCoroutine(_coroutineSmoking);
 
-            _canvasSmoke.SetTrigger("smokeOff");
+            _manager.canvasSmoke.SetBool("smokeIsOn", false);
         }
 
         private IEnumerator CoroutineSmoking()
