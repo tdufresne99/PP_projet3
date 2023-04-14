@@ -42,6 +42,7 @@ namespace Mother
         public override void Exit()
         {
             // Exit idling state
+            _manager.motherAudioSource.Stop();
             _manager.StopCoroutine(_coroutineIdle);
         }
 
