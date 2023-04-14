@@ -422,7 +422,7 @@ MonoBehaviour:
     m_Scale: 1
     m_AtlasIndex: 0
     m_ClassDefinitionType: 0
-  - m_Index: 68
+  - m_Index: 89
     m_Metrics:
       m_Width: 76.53125
       m_Height: 107.6875
@@ -430,7 +430,7 @@ MonoBehaviour:
       m_HorizontalBearingY: 115.203125
       m_HorizontalAdvance: 88.15625
     m_GlyphRect:
-      m_X: 305
+      m_X: 109
       m_Y: 11
       m_Width: 77
       m_Height: 109
@@ -730,8 +730,8 @@ MonoBehaviour:
       m_HorizontalBearingY: 115.203125
       m_HorizontalAdvance: 88.15625
     m_GlyphRect:
-      m_X: 207
-      m_Y: 401
+      m_X: 403
+      m_Y: 141
       m_Width: 77
       m_Height: 109
     m_Scale: 1
@@ -948,8 +948,16 @@ MonoBehaviour:
     m_GlyphIndex: 169
     m_Scale: 1
   - m_ElementType: 1
-    m_Unicode: 234
-    m_GlyphIndex: 170
+    m_Unicode: 69
+    m_GlyphIndex: 40
+    m_Scale: 1
+  - m_ElementType: 1
+    m_Unicode: 83
+    m_GlyphIndex: 54
+    m_Scale: 1
+  - m_ElementType: 1
+    m_Unicode: 86
+    m_GlyphIndex: 57
     m_Scale: 1
   m_AtlasTextures:
   - {fileID: 28981121099961358}
@@ -1003,34 +1011,50 @@ MonoBehaviour:
     m_Height: 130
   - m_X: 392
     m_Y: 0
-    m_Width: 98
-    m_Height: 130
-  - m_X: 490
-    m_Y: 0
-    m_Width: 98
-    m_Height: 130
-  - m_X: 588
-    m_Y: 0
-    m_Width: 98
-    m_Height: 130
-  - m_X: 686
-    m_Y: 0
-    m_Width: 98
-    m_Height: 130
-  - m_X: 784
-    m_Y: 0
-    m_Width: 88
-    m_Height: 145
-  - m_X: 872
-    m_Y: 0
-    m_Width: 98
-    m_Height: 130
-  - m_X: 872
-    m_Y: 130
     m_Width: 67
+    m_Height: 130
+  - m_X: 459
+    m_Y: 0
+    m_Width: 98
+    m_Height: 130
+  - m_X: 557
+    m_Y: 0
+    m_Width: 98
+    m_Height: 130
+  - m_X: 655
+    m_Y: 0
+    m_Width: 98
+    m_Height: 130
+  - m_X: 753
+    m_Y: 0
+    m_Width: 98
+    m_Height: 130
+  - m_X: 851
+    m_Y: 0
+    m_Width: 98
     m_Height: 130
   - m_X: 98
     m_Y: 130
+    m_Width: 98
+    m_Height: 130
+  - m_X: 98
+    m_Y: 260
+    m_Width: 98
+    m_Height: 130
+  - m_X: 98
+    m_Y: 390
+    m_Width: 98
+    m_Height: 130
+  - m_X: 98
+    m_Y: 520
+    m_Width: 98
+    m_Height: 130
+  - m_X: 98
+    m_Y: 650
+    m_Width: 98
+    m_Height: 130
+  - m_X: 98
+    m_Y: 780
     m_Width: 98
     m_Height: 130
   - m_X: 196
@@ -1045,6 +1069,14 @@ MonoBehaviour:
     m_Y: 130
     m_Width: 98
     m_Height: 130
+  - m_X: 949
+    m_Y: 0
+    m_Width: 51
+    m_Height: 52
+  - m_X: 949
+    m_Y: 52
+    m_Width: 51
+    m_Height: 83
   - m_X: 490
     m_Y: 130
     m_Width: 98
@@ -1057,63 +1089,27 @@ MonoBehaviour:
     m_Y: 130
     m_Width: 98
     m_Height: 130
-  - m_X: 98
-    m_Y: 260
+  - m_X: 784
+    m_Y: 130
     m_Width: 98
     m_Height: 130
-  - m_X: 98
-    m_Y: 390
-    m_Width: 98
-    m_Height: 130
-  - m_X: 98
-    m_Y: 520
-    m_Width: 98
-    m_Height: 130
-  - m_X: 98
-    m_Y: 650
-    m_Width: 98
-    m_Height: 130
-  - m_X: 98
-    m_Y: 780
+  - m_X: 882
+    m_Y: 135
     m_Width: 98
     m_Height: 130
   - m_X: 196
     m_Y: 260
-    m_Width: 98
-    m_Height: 130
-  - m_X: 196
-    m_Y: 390
-    m_Width: 98
-    m_Height: 130
-  - m_X: 970
-    m_Y: 0
-    m_Width: 51
-    m_Height: 52
-  - m_X: 196
-    m_Y: 520
-    m_Width: 98
-    m_Height: 130
-  - m_X: 196
-    m_Y: 650
-    m_Width: 98
-    m_Height: 130
-  - m_X: 970
-    m_Y: 52
-    m_Width: 51
-    m_Height: 83
-  - m_X: 196
-    m_Y: 780
     m_Width: 98
     m_Height: 130
   - m_X: 294
     m_Y: 260
     m_Width: 98
     m_Height: 130
-  - m_X: 784
-    m_Y: 145
-    m_Width: 88
-    m_Height: 145
-  - m_X: 872
+  - m_X: 392
+    m_Y: 260
+    m_Width: 98
+    m_Height: 130
+  - m_X: 490
     m_Y: 260
     m_Width: 98
     m_Height: 130
@@ -1130,9 +1126,9 @@ MonoBehaviour:
     m_Y: 910
     m_Width: 925
     m_Height: 113
-  - m_X: 1021
+  - m_X: 1000
     m_Y: 0
-    m_Width: 2
+    m_Width: 23
     m_Height: 1023
   - m_X: 294
     m_Y: 390
@@ -1140,13 +1136,9 @@ MonoBehaviour:
     m_Height: 633
   - m_X: 939
     m_Y: 135
-    m_Width: 84
-    m_Height: 125
-  - m_X: 970
-    m_Y: 135
-    m_Width: 53
+    m_Width: 43
     m_Height: 888
-  - m_X: 939
+  - m_X: 882
     m_Y: 130
     m_Width: 31
     m_Height: 130

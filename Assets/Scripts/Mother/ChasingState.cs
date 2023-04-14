@@ -43,7 +43,6 @@ namespace Mother
         public override void Exit()
         {
             // Exit patrolling state
-            _manager.motherAudioSource.Stop();
         }
         private void DetectPlayer(Transform objectTransform, Transform otherObjectTransform)
         {
