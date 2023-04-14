@@ -2310,6 +2310,11 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: ff5a845f64bef5e4a9d72aa0ece7ebce,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 32c47a70c8ed5fb4694e5edb4efcf061, type: 2}
     - target: {fileID: 919132149155446097, guid: ff5a845f64bef5e4a9d72aa0ece7ebce,
         type: 3}
       propertyPath: m_Name
@@ -92467,6 +92472,16 @@ PrefabInstance:
       propertyPath: m_FirstHoverEntered.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.AudioClip, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 4707167257154172778, guid: 5ab0eaad8772c014f9c48a73afbf3230,
+        type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4707167257154172778, guid: 5ab0eaad8772c014f9c48a73afbf3230,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 5153a24869b5c9e4591b08a95c4e0ddb, type: 2}
     - target: {fileID: 4707167257746765084, guid: 5ab0eaad8772c014f9c48a73afbf3230,
         type: 3}
       propertyPath: m_Enabled
@@ -94848,6 +94863,16 @@ PrefabInstance:
       propertyPath: m_FirstHoverEntered.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.AudioClip, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 9031089327668082134, guid: 5ab0eaad8772c014f9c48a73afbf3230,
+        type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9031089327668082134, guid: 5ab0eaad8772c014f9c48a73afbf3230,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 5153a24869b5c9e4591b08a95c4e0ddb, type: 2}
     - target: {fileID: 9031089327724653427, guid: 5ab0eaad8772c014f9c48a73afbf3230,
         type: 3}
       propertyPath: m_FirstHoverEntered.m_PersistentCalls.m_Calls.Array.size
@@ -95083,6 +95108,66 @@ PrefabInstance:
       propertyPath: m_FirstHoverEntered.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.AudioClip, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 9031089328739191352, guid: 5ab0eaad8772c014f9c48a73afbf3230,
+        type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9031089328739191352, guid: 5ab0eaad8772c014f9c48a73afbf3230,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 5153a24869b5c9e4591b08a95c4e0ddb, type: 2}
+    - target: {fileID: 9031089328913840335, guid: 5ab0eaad8772c014f9c48a73afbf3230,
+        type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9031089328913840335, guid: 5ab0eaad8772c014f9c48a73afbf3230,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 5153a24869b5c9e4591b08a95c4e0ddb, type: 2}
+    - target: {fileID: 9031089328965616087, guid: 5ab0eaad8772c014f9c48a73afbf3230,
+        type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9031089328965616087, guid: 5ab0eaad8772c014f9c48a73afbf3230,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 5153a24869b5c9e4591b08a95c4e0ddb, type: 2}
+    - target: {fileID: 9031089329102091719, guid: 5ab0eaad8772c014f9c48a73afbf3230,
+        type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9031089329102091719, guid: 5ab0eaad8772c014f9c48a73afbf3230,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 5153a24869b5c9e4591b08a95c4e0ddb, type: 2}
+    - target: {fileID: 9031089329169398090, guid: 5ab0eaad8772c014f9c48a73afbf3230,
+        type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9031089329169398090, guid: 5ab0eaad8772c014f9c48a73afbf3230,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 5153a24869b5c9e4591b08a95c4e0ddb, type: 2}
+    - target: {fileID: 9031089329401915754, guid: 5ab0eaad8772c014f9c48a73afbf3230,
+        type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9031089329401915754, guid: 5ab0eaad8772c014f9c48a73afbf3230,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 5153a24869b5c9e4591b08a95c4e0ddb, type: 2}
     - target: {fileID: 9031089329444038639, guid: 5ab0eaad8772c014f9c48a73afbf3230,
         type: 3}
       propertyPath: m_FirstHoverEntered.m_PersistentCalls.m_Calls.Array.size
