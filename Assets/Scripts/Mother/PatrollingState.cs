@@ -5,7 +5,7 @@ namespace Mother
 {
     public class PatrollingState : MotherState
     {
-        private float _patrolMoveSpeed = 0.6f;
+        private float _patrolMoveSpeed = 1f;
         private MotherStateManager _manager;
         private float _distanceThreshold = 8f;
         private Vector3 _currentDestination;
@@ -37,7 +37,7 @@ namespace Mother
         {
             // Do patrolling behavior
             DetectPlayer(_manager.motherTransform, _manager.playerTransform);
-            if (Mathf.Abs(Vector3.Distance(_manager.motherTransform.position, _currentDestination)) <= 1f)
+            if (Mathf.Abs(Vector3.Distance(_manager.motherTransform.position, _currentDestination)) <= 2f)
             {
                 _manager.TransitionToState(_manager.idlingState);
             }
