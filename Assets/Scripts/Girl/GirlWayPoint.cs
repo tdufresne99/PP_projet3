@@ -18,7 +18,7 @@ namespace Girl
             if (other.gameObject.layer == LayersEnum.PlayerLayer)
             {
                 if (_boxCollider != null) Destroy(_boxCollider);
-                if (_wayPointManager != null) _wayPointManager.OnWayPointReached(_activateWaypoint);
+                if (_wayPointManager != null) _wayPointManager.OnWayPointReached(_activateWaypoint, false);
             }
         }
     }

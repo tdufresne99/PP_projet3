@@ -18,7 +18,8 @@ namespace Father
         {
             Debug.Log("Respawning");
 
-            // Play idle anim;
+            _manager.fatherAudioSource.clip = _manager.respawnAudioClip;
+            _manager.fatherAudioSource.Play();
 
             _manager.fatherTransform.position = _manager.respawnTransform.position;
 

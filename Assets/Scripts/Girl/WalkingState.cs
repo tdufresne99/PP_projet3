@@ -7,7 +7,7 @@ namespace Girl
         private float _walkingSpeed = 1.2f;
         private float _animSpeed = 1.4f;
         private GirlStateManager _manager;
-        private float _distanceThreshold = 6f;
+        private float _distanceThreshold = 10f;
         private bool _isWalking = true;
         private string walkTrigger = "isWalking";
 

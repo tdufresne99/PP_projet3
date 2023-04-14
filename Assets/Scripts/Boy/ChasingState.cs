@@ -17,6 +17,10 @@ namespace Boy
         {
             Debug.Log("RUN!");
 
+            _manager.boyAudioSource.clip = _manager.boyChasingClip;
+            _manager.boyAudioSource.loop = true;
+            _manager.boyAudioSource.Play();
+
             // Play idle anim;
             _manager.boyAnimator.SetBool(_boolTrigger, true);
 
@@ -32,7 +36,7 @@ namespace Boy
 
         public override void Exit()
         {
-            
+            _manager.boyAudioSource.Stop();
         }
     }
 }

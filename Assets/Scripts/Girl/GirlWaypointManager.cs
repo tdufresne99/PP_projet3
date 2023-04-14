@@ -16,21 +16,33 @@ namespace Girl
         private int _currentVoiceLineIndex = -1;
         private int _currentWaypointIndex = -1;
         public Transform _currentWaypoint;
+        bool _grabbedDollTooSoon = false;
         void Start()
         {
             _girlStateManagerCS.girlTransform.position = _girlSpawnPoint.position;
         }
 
-        public void OnWayPointReached(bool activateWaypoint)
+        public void OnWayPointReached(bool activateWaypoint, bool objectGrabbed)
         {
+            if (objectGrabbed && _currentVoiceLineIndex < 1)
+            {
+                for (int i = 0; i < _wayPointsColliders.Length; i++)
+                {
+                    if (_wayPointsColliders[i] != null) _wayPointsColliders[i].enabled = false;
+                }
+                _grabbedDollTooSoon = true;
+                TeleportGirl();
+                _currentVoiceLineIndex = 2;
+            }
             PlayVoiceLine();
-            if (activateWaypoint) ActivateNextWayPoint();
+            if (activateWaypoint && !_grabbedDollTooSoon) ActivateNextWayPoint();
         }
 
         private void PlayVoiceLine()
         {
             _currentVoiceLineIndex++;
-            _girlVoicelineManagerCS.PlayGirlVoicelineIntro(_currentVoiceLineIndex);
+            if (_currentVoiceLineIndex == 0) _girlStateManagerCS.girlAudioSource.PlayOneShot(_girlStateManagerCS.girlAlloClip);
+                _girlVoicelineManagerCS.PlayGirlVoicelineIntro(_currentVoiceLineIndex);
         }
 
         public void ActivateNextWayPoint()
@@ -78,6 +90,13 @@ namespace Girl
         public void TeleportGirl()
         {
             _girlStateManagerCS.girlTransform.position = _wayPoints[_wayPoints.Length - 1].position;
+            _girlStateManagerCS.girlNavMeshAgentManager.ChangeDestination(_wayPoints[_wayPoints.Length - 1].position);
+            _girlStateManagerCS.TransitionToState(_girlStateManagerCS.idlingState);
+            LookAt lookat = _girlStateManagerCS.gameObject.GetComponent<LookAt>();
+            if (lookat != null)
+            {
+                lookat.enabled = true;
+            }
         }
     }
 }

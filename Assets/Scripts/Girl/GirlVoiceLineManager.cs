@@ -7,6 +7,7 @@ namespace Girl
 {
     public class GirlVoiceLineManager : MonoBehaviour
     {
+        
         [SerializeField] private GameObject _puzzleItemGirl;
         [SerializeField] private TextMeshProUGUI _girlText;
         [SerializeField] private Animator _girlAnimator;
@@ -35,7 +36,7 @@ namespace Girl
         public void PlayGirlVoicelineIntro(int index)
         {
             _girlText.text = _girlLinesIntro[index];
-            if (index == 0 || index == 2) Invoke("ClearText", 10f);
+            // if (index == 0 || index == 2) Invoke("ClearText", 10f);
             if (index == 0) _puzzleItemGirl.SetActive(true);
         }
         public void PlayGirlVoicelineObject(int index)

@@ -11,6 +11,9 @@ namespace Girl
         public Transform playerTransform;
         public LayerMask wallsLayerMask;
         public Animator girlAnimator;
+        public AudioSource girlAudioSource;
+        public AudioClip girlIdleClip;
+        public AudioClip girlAlloClip;
         public GirlState currentState;
         public IdlingState idlingState;
         public WalkingState walkingState;

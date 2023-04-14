@@ -13,6 +13,8 @@ namespace Girl
         public override void Enter()
         {
             // Play Idle Anim
+            _manager.girlAudioSource.PlayOneShot(_manager.girlIdleClip);
+
             _manager.girlAnimator.SetBool(walkTrigger, false);
             Debug.Log("girl is idle");
         }

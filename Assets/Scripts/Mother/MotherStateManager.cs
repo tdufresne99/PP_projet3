@@ -20,6 +20,10 @@ namespace Mother
         public MotherState currentState;
 
         public Animator motherAnimator;
+        public AudioSource motherAudioSource;
+        public AudioClip motherChase;
+        public AudioClip motherIdle;
+        public AudioClip motherSpot;
 
         public IdlingState idlingState;
         public PatrollingState patrollingState;

@@ -6,10 +6,6 @@ namespace Father
 {
     public class FatherStateManager : MonoBehaviour
     {
-        public Material smokeMat;
-        public Material roomChooseMat;
-        public Material respawnMat;
-
         [SerializeField] private PlayerDeathManager _playerDeathManagerCS;
 
         [SerializeField] private ObjectCurrentRoom _playerCurrentRoomCS;
@@ -17,13 +13,15 @@ namespace Father
 
         [SerializeField] private RoomsEnum _playerCurrentRoom;
         [SerializeField] private RoomsEnum _fatherCurrentRoom;
+        
 
-        private Coroutine _coroutineSmokePlayer;
+        public AudioClip breathingAudioClip;
+        public AudioClip respawnAudioClip;
+        public AudioSource fatherAudioSource;
 
         public RoomManager roomManagerCS;
         public Transform respawnTransform;
         public Transform fatherTransform;
-        public Transform playerTransform;
         public Transform currentRoomTransform;
         public Animator canvasSmoke;
 

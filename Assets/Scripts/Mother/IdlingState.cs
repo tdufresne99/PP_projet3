@@ -25,6 +25,9 @@ namespace Mother
             _manager.motherAnimator.SetTrigger(_idleTrigger);
 
             // Play idle sound;
+            _manager.motherAudioSource.clip = _manager.motherIdle;
+            _manager.motherAudioSource.loop = true;
+            _manager.motherAudioSource.Play();
 
             _manager.navMeshDestinationCS.ChangeAgentSpeed(_idleSpeed);
             _coroutineIdle = _manager.StartCoroutine(CoroutineIdle());

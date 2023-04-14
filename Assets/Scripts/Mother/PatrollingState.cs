@@ -24,6 +24,9 @@ namespace Mother
             _manager.motherAnimator.SetTrigger(_walkTrigger);
 
             // Play patrol sound;
+            _manager.motherAudioSource.clip = _manager.motherIdle;
+            _manager.motherAudioSource.loop = true;
+            _manager.motherAudioSource.Play();
 
             _currentDestination = _manager.GetRandomDestination();
             _manager.navMeshDestinationCS.ChangeDestination(_currentDestination);
@@ -43,6 +46,7 @@ namespace Mother
         public override void Exit()
         {
             // Exit patrolling state
+            _manager.motherAudioSource.Stop();
         }
 
         private void DetectPlayer(Transform objectTransform, Transform otherObjectTransform)

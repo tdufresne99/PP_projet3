@@ -25,6 +25,9 @@ namespace Mother
 
 
             // Play chase sound;
+            _manager.motherAudioSource.clip = _manager.motherChase;
+            _manager.motherAudioSource.loop = true;
+            _manager.motherAudioSource.Play();
 
             _manager.navMeshDestinationCS.ChangeDestination(_manager.playerTransform.position);
             _manager.navMeshDestinationCS.ChangeAgentSpeed(_chaseMoveSpeed);
@@ -40,6 +43,7 @@ namespace Mother
         public override void Exit()
         {
             // Exit patrolling state
+            _manager.motherAudioSource.Stop();
         }
         private void DetectPlayer(Transform objectTransform, Transform otherObjectTransform)
         {

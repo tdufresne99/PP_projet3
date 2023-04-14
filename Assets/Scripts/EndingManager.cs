@@ -6,6 +6,9 @@ using Girl;
 
 public class EndingManager : MonoBehaviour
 {
+    [SerializeField] private AudioSource _generalAudioSource;
+    [SerializeField] private AudioClip _goodEndingClip;
+    [SerializeField] private AudioClip _badEndingClip;
     [SerializeField] private Transform[] _ghostTransforms;
 
     [SerializeField] private Transform[] _goodEndingTransforms;
@@ -21,6 +24,8 @@ public class EndingManager : MonoBehaviour
     public void OnGoodEnding()
     {
         Debug.Log("Good ending");
+        _generalAudioSource.PlayOneShot(_goodEndingClip);
+
 
         _girlObject.SetActive(false);
 
@@ -43,7 +48,7 @@ public class EndingManager : MonoBehaviour
     public void OnBadEnding()
     {
         Debug.Log("Bad ending");
-
+        _generalAudioSource.PlayOneShot(_badEndingClip);
         _girlObject.SetActive(false);
 
         for (int i = 0; i < _ghostTransforms.Length; i++)
@@ -69,7 +74,7 @@ public class EndingManager : MonoBehaviour
 
     private void LoadGoodEndingScene()
     {
-        GameManager.instance.LoadSceneWithString("GoodEnding");
+        GameManager.instance.LoadSceneWithString("GoodEnd");
     }
 
     private void ActivateBadEndingCanvas()
@@ -80,6 +85,6 @@ public class EndingManager : MonoBehaviour
 
     private void LoadBadEndingScene()
     {
-        GameManager.instance.LoadSceneWithString("BadEnding");
+        GameManager.instance.LoadSceneWithString("BadEnd");
     }
 }

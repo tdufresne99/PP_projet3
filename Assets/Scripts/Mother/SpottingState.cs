@@ -26,6 +26,7 @@ namespace Mother
             _manager.motherAnimator.speed = 0.4f;
 
             // Play patrol sound;
+            _manager.motherAudioSource.PlayOneShot(_manager.motherSpot);
 
             _manager.navMeshDestinationCS.ChangeDestination(_manager.playerTransform.position);
             _manager.navMeshDestinationCS.ChangeAgentSpeed(_spotMoveSpeed);

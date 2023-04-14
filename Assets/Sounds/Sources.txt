@@ -1,4 +1,23 @@
 BoyRespawn: https://freesound.org/people/HorrorAudio/sounds/431979/
 
+BoyChase: https://freesound.org/people/RetroGuy23/sounds/651953/
+
 fatherSmoke: https://freesound.org/people/inmelo/sounds/424744/
 
+ambiance: https://freesound.org/people/pfranzen/sounds/393808/
+
+good ending: https://freesound.org/people/martian/sounds/200257/
+
+bad ending: https://freesound.org/people/xkeril/sounds/670317/
+
+swith: https://freesound.org/people/Windwalk_Entertainment/sounds/566176/
+
+fire: https://freesound.org/people/JenyayneX/sounds/649087/
+
+heartbeat: https://freesound.org/people/newlocknew/sounds/612639/
+
+girlIdle: https://freesound.org/people/newlocknew/sounds/612639/
+
+girlAllo: https://freesound.org/people/xpoki/sounds/436613/
+
+motherSpot: https://freesound.org/people/unfa/sounds/213231/

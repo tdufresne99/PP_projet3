@@ -9,17 +9,17 @@ EditorBuildSettings:
     path: 
     guid: 00000000000000000000000000000000
   - enabled: 1
-    path: Assets/Scenes/Menu.unity
+    path: Assets/Scenes/FINAL/Menu.unity
     guid: a8fa91bdb0cbe2749bd0e73545425d1f
   - enabled: 1
-    path: Assets/Scenes/Scene Post Beta.unity
-    guid: 0015517d405f691439182a7d3dcdd3c4
-  - enabled: 1
-    path: Assets/Scenes/BadEnd.unity
+    path: Assets/Scenes/FINAL/BadEnd.unity
     guid: 5b92e67ef42652744a681cfc38522442
   - enabled: 1
-    path: Assets/Scenes/GoodEnd.unity
+    path: Assets/Scenes/FINAL/GoodEnd.unity
     guid: 9a4423ce956e48c4caf036e0b8aa41b8
+  - enabled: 1
+    path: Assets/Scenes/FINAL/Game.unity
+    guid: d6e1d2b3e263fad40bc0fc0473286cf8
   m_configObjects:
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 7fc24dc6b55a6c743b6ec284091cdca8,
       type: 2}

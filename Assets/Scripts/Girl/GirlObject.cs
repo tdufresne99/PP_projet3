@@ -13,7 +13,7 @@ namespace Girl
             Debug.Log(_girlWaypointManager);
             if(voiceLinePlayed == false && _girlWaypointManager != null) 
             {
-                _girlWaypointManager.OnWayPointReached(true);
+                _girlWaypointManager.OnWayPointReached(true, true);
             }
             
             voiceLinePlayed = true;

@@ -29,6 +29,9 @@ namespace Father
                 Debug.LogWarning("No smoke found in current room...");
             }
             _coroutineSmoking = _manager.StartCoroutine(CoroutineSmoking());
+            _manager.fatherAudioSource.clip = _manager.respawnAudioClip;
+            _manager.fatherAudioSource.loop = true;
+            _manager.fatherAudioSource.Play();
         }
 
         public override void Execute()

@@ -6,8 +6,8 @@ namespace Boy
     public class IdlingState : BoyState
     {
         private float _distanceThreshold = 8f;
-        private float _waitingInTheDarknessTime = 4f;
-        private float _waitingBeforeRespawnTime = 12f;
+        private float _waitingInTheDarknessTime = 2.5f;
+        private float _waitingBeforeRespawnTime = 6f;
         private Coroutine _respawnCoroutine;
         private bool _isWaiting = true;
         private string _boolTrigger = "isChasing";

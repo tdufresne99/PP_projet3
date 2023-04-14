@@ -7,6 +7,8 @@ using Boy;
 
 public class PlayerDeathManager : MonoBehaviour
 {
+    [SerializeField] private AudioSource _generalAudioSource;
+    [SerializeField] private AudioClip _heartbeat;
     [SerializeField] private MotherStateManager _motherManagerCS;
     [SerializeField] private FatherStateManager _fatherManagerCS;
     [SerializeField] private BoyStateManager _boyManagerCS;
@@ -21,7 +23,7 @@ public class PlayerDeathManager : MonoBehaviour
     private string _smokeOnTrigger = "smokeIsOn";
     private bool _smokeStarted = false;
 
-    [SerializeField] private float _timeToKillPlayerWithSmoke = 5f;
+    [SerializeField] private float _timeToKillPlayerWithSmoke = 3f;
     private Coroutine _coroutineSmokePlayer;
 
     private Coroutine _coroutineResetGame;
@@ -59,6 +61,7 @@ public class PlayerDeathManager : MonoBehaviour
 
     private void PlayDeathCanvasAnimations()
     {
+        _generalAudioSource.PlayOneShot(_heartbeat);
         _deathCanvasAnimator.SetBool(_fadeInTrigger, false);
         Invoke("FadeOutPlayerDeathCanvas", 4f);
     }
@@ -82,6 +85,7 @@ public class PlayerDeathManager : MonoBehaviour
     {
         if (other.gameObject.GetComponent<MeleeAttack>() != null)
         {
+
             StartCoroutineResetGame();
         }
     }
