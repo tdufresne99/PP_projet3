@@ -40,6 +40,7 @@ namespace Girl
         }
         public void PlayGirlVoicelineObject(int index)
         {
+            Debug.Log("is walking");
             _girlAnimator.SetBool("isWalking", false);
             CancelInvoke();
             gameObject.GetComponent<LookAt>().enabled = true;
