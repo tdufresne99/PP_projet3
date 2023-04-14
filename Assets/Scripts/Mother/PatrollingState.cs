@@ -37,6 +37,7 @@ namespace Mother
         {
             // Do patrolling behavior
             DetectPlayer(_manager.motherTransform, _manager.playerTransform);
+            Debug.Log(Mathf.Abs(Vector3.Distance(_manager.motherTransform.position, _currentDestination)));
             if (Mathf.Abs(Vector3.Distance(_manager.motherTransform.position, _currentDestination)) <= 2f)
             {
                 _manager.TransitionToState(_manager.idlingState);
